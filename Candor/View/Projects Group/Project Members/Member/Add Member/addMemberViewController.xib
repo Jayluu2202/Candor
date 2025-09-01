@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="addMemberViewController" customModule="Candor" customModuleProvider="target">
+            <connections>
+                <outlet property="addButtonOutlet" destination="l0T-Li-aya" id="bhi-fi-aOj"/>
+                <outlet property="closeButtonOutlet" destination="o3V-dx-he4" id="UAw-bO-592"/>
+                <outlet property="innerView" destination="0bt-fr-pRF" id="eht-7K-LRI"/>
+                <outlet property="memberSelectPullDownButtonOutlet" destination="kvz-5U-aaQ" id="DeY-fW-tCE"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0bt-fr-pRF">
+                    <rect key="frame" x="57" y="348" width="300" height="200"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o3V-dx-he4">
+                            <rect key="frame" x="267" y="8" width="25" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="25" id="ite-2g-GH7"/>
+                                <constraint firstAttribute="height" constant="25" id="nnA-DL-NjC"/>
+                            </constraints>
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" image="multiply.circle" catalog="system"/>
+                            <connections>
+                                <action selector="closeButton:" destination="-1" eventType="touchUpInside" id="yEB-Q2-Ugb"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Member" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Npe-K7-ZBo">
+                            <rect key="frame" x="20" y="20" width="109.5" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="Rxw-kZ-wxf"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lrM-2W-dYl">
+                            <rect key="frame" x="30" y="48" width="45" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="8NV-bx-D4C"/>
+                                <constraint firstAttribute="width" constant="45" id="qQd-2V-Dwx"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l0T-Li-aya">
+                            <rect key="frame" x="60" y="161" width="180" height="31"/>
+                            <color key="backgroundColor" name="color8"/>
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Add Member"/>
+                            <connections>
+                                <action selector="addButton:" destination="-1" eventType="touchUpInside" id="eLQ-3e-N5k"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" role="primary" translatesAutoresizingMaskIntoConstraints="NO" id="kvz-5U-aaQ">
+                            <rect key="frame" x="84.5" y="76" width="131.5" height="34"/>
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <menu key="menu" id="JtY-pr-iak">
+                                <children>
+                                    <command title="Item 1" id="IoL-l1-y5c"/>
+                                    <command title="Item 2" id="XRh-NH-VhD"/>
+                                </children>
+                            </menu>
+                            <state key="normal" title="Select" image="chevron.down.square.fill" catalog="system">
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="17" scale="large"/>
+                            </state>
+                            <buttonConfiguration key="configuration" style="plain" image="chevron.down.square.fill" catalog="system" title="Select" imagePadding="40">
+                                <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="17" scale="large"/>
+                                <fontDescription key="titleFontDescription" type="system" pointSize="15"/>
+                            </buttonConfiguration>
+                            <connections>
+                                <action selector="memberSelectPullDownButton:" destination="-1" eventType="touchUpInside" id="WF0-6l-S6x"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="200" id="6dE-pb-hNu"/>
+                        <constraint firstAttribute="trailing" secondItem="l0T-Li-aya" secondAttribute="trailing" constant="60" id="832-XF-5QV"/>
+                        <constraint firstItem="lrM-2W-dYl" firstAttribute="top" secondItem="Npe-K7-ZBo" secondAttribute="bottom" constant="8" symbolic="YES" id="F8x-nP-jtt"/>
+                        <constraint firstItem="lrM-2W-dYl" firstAttribute="leading" secondItem="0bt-fr-pRF" secondAttribute="leading" constant="30" id="OCK-6O-l2G"/>
+                        <constraint firstItem="kvz-5U-aaQ" firstAttribute="top" secondItem="lrM-2W-dYl" secondAttribute="bottom" constant="8" symbolic="YES" id="bmQ-s8-JU3"/>
+                        <constraint firstItem="l0T-Li-aya" firstAttribute="leading" secondItem="0bt-fr-pRF" secondAttribute="leading" constant="60" id="bn6-jK-eFd"/>
+                        <constraint firstAttribute="trailing" secondItem="o3V-dx-he4" secondAttribute="trailing" constant="8" id="izm-yC-Fjs"/>
+                        <constraint firstItem="kvz-5U-aaQ" firstAttribute="centerX" secondItem="0bt-fr-pRF" secondAttribute="centerX" id="llO-ba-dic"/>
+                        <constraint firstItem="Npe-K7-ZBo" firstAttribute="leading" secondItem="0bt-fr-pRF" secondAttribute="leading" constant="20" id="tQN-u0-aM8"/>
+                        <constraint firstAttribute="width" constant="300" id="tU8-9T-w7C"/>
+                        <constraint firstItem="o3V-dx-he4" firstAttribute="top" secondItem="0bt-fr-pRF" secondAttribute="top" constant="8" id="xSk-Ez-yG9"/>
+                        <constraint firstAttribute="bottom" secondItem="l0T-Li-aya" secondAttribute="bottom" constant="8" id="xay-lY-q8r"/>
+                        <constraint firstItem="Npe-K7-ZBo" firstAttribute="top" secondItem="0bt-fr-pRF" secondAttribute="top" constant="20" id="yhx-Vx-557"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="0bt-fr-pRF" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="wCR-rZ-KZq"/>
+                <constraint firstItem="0bt-fr-pRF" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="xOc-FQ-NaS"/>
+            </constraints>
+            <point key="canvasLocation" x="131.8840579710145" y="77.678571428571431"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="chevron.down.square.fill" catalog="system" width="128" height="114"/>
+        <image name="multiply.circle" catalog="system" width="128" height="121"/>
+        <namedColor name="color8">
+            <color red="0.67799997329711914" green="0.9100000262260437" blue="0.9570000171661377" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

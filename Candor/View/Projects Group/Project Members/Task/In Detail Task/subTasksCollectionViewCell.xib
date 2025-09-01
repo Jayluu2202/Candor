@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="subTasksCollectionViewCell" customModule="Candor" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="120"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="300" height="120"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ryZ-Br-iIA">
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="120"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" pointerInteraction="YES" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ghh-DK-WQ4">
+                                <rect key="frame" x="8" y="49" width="20" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="66c-v7-D3L"/>
+                                    <constraint firstAttribute="width" constant="20" id="WbF-D6-OgF"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="checkmark.square" catalog="system"/>
+                                <connections>
+                                    <action selector="checkMarkButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="L3v-6x-w0s"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6HA-2o-sAL">
+                                <rect key="frame" x="48" y="44.5" width="83.5" height="31"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Add Task"/>
+                                <connections>
+                                    <action selector="addTaskButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="Uai-jd-oHP"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="-14" translatesAutoresizingMaskIntoConstraints="NO" id="dbR-5D-C1i">
+                                <rect key="frame" x="186" y="44.5" width="107" height="31"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iyG-3w-KMd">
+                                        <rect key="frame" x="0.0" y="0.0" width="45" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="applepencil" catalog="system" title=""/>
+                                        <connections>
+                                            <action selector="editSubTaskButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="m6M-hf-h0m"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AIP-ax-OaQ">
+                                        <rect key="frame" x="31" y="0.0" width="45" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="calendar" catalog="system" title=""/>
+                                        <connections>
+                                            <action selector="calenderButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="bj1-VO-Qwz"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GuZ-I8-fem">
+                                        <rect key="frame" x="62" y="0.0" width="45" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="trash" catalog="system" title=""/>
+                                        <connections>
+                                            <action selector="deleteButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="Wso-Is-tCI"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XHx-P3-m3T">
+                                <rect key="frame" x="36" y="50" width="135" height="20.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="135" id="Qcz-Qm-cS2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="XHx-P3-m3T" firstAttribute="leading" secondItem="ghh-DK-WQ4" secondAttribute="trailing" constant="8" symbolic="YES" id="Rfy-ja-bE7"/>
+                            <constraint firstItem="dbR-5D-C1i" firstAttribute="centerY" secondItem="ryZ-Br-iIA" secondAttribute="centerY" id="Tr3-kJ-Z5S"/>
+                            <constraint firstItem="dbR-5D-C1i" firstAttribute="leading" secondItem="XHx-P3-m3T" secondAttribute="trailing" constant="15" id="UL4-sI-G2p"/>
+                            <constraint firstItem="XHx-P3-m3T" firstAttribute="centerY" secondItem="ryZ-Br-iIA" secondAttribute="centerY" id="Vv7-DS-3g4"/>
+                            <constraint firstItem="ghh-DK-WQ4" firstAttribute="centerY" secondItem="ryZ-Br-iIA" secondAttribute="centerY" id="l4n-qh-BHo"/>
+                            <constraint firstItem="6HA-2o-sAL" firstAttribute="leading" secondItem="ghh-DK-WQ4" secondAttribute="trailing" constant="20" id="rSP-g2-l6f"/>
+                            <constraint firstItem="6HA-2o-sAL" firstAttribute="centerY" secondItem="ryZ-Br-iIA" secondAttribute="centerY" id="rdU-DG-Nmm"/>
+                            <constraint firstItem="ghh-DK-WQ4" firstAttribute="leading" secondItem="ryZ-Br-iIA" secondAttribute="leading" constant="8" id="uSZ-Zi-By0"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="ryZ-Br-iIA" secondAttribute="bottom" id="063-ly-s7a"/>
+                <constraint firstItem="ryZ-Br-iIA" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Fsy-2x-M7W"/>
+                <constraint firstItem="ryZ-Br-iIA" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Uex-Dm-21Q"/>
+                <constraint firstAttribute="trailing" secondItem="ryZ-Br-iIA" secondAttribute="trailing" id="eim-QV-Bup"/>
+            </constraints>
+            <size key="customSize" width="383" height="135"/>
+            <connections>
+                <outlet property="addTaskButtonOutlet" destination="6HA-2o-sAL" id="OQA-89-IBg"/>
+                <outlet property="checkMarkButtonOutlet" destination="ghh-DK-WQ4" id="Kys-Ea-a6G"/>
+                <outlet property="editCalenderTrashButtonStack" destination="dbR-5D-C1i" id="GrZ-C4-5ns"/>
+                <outlet property="subTaskNameLabel" destination="XHx-P3-m3T" id="jPa-ut-u37"/>
+            </connections>
+            <point key="canvasLocation" x="371.01449275362324" y="136.60714285714286"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="applepencil" catalog="system" width="128" height="113"/>
+        <image name="calendar" catalog="system" width="128" height="106"/>
+        <image name="checkmark.square" catalog="system" width="128" height="114"/>
+        <image name="trash" catalog="system" width="121" height="128"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="addProjectForm" customModule="Candor" customModuleProvider="target">
+            <connections>
+                <outlet property="addTaskButtonOutlet" destination="HPi-67-Mjw" id="Flr-OY-tr5"/>
+                <outlet property="closeButtonOutlet" destination="3iP-bv-tn9" id="QAe-cb-dtt"/>
+                <outlet property="endDatePickerOutlet" destination="8ZP-l8-hG2" id="mNu-Y6-re4"/>
+                <outlet property="popupContainerView" destination="M5q-HC-9pi" id="FID-2T-MEf"/>
+                <outlet property="projectTFOutlet" destination="EYm-Tl-67N" id="GUf-sa-KMJ"/>
+                <outlet property="startDatePickerOutlet" destination="tci-eG-V3d" id="r6X-Ak-1s6"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M5q-HC-9pi">
+                    <rect key="frame" x="57" y="338" width="300" height="220"/>
+                    <subviews>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EYm-Tl-67N">
+                            <rect key="frame" x="20" y="41" width="260" height="34"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <datePicker contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="tci-eG-V3d">
+                            <rect key="frame" x="20" y="107" width="120" height="31"/>
+                        </datePicker>
+                        <datePicker contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="8ZP-l8-hG2">
+                            <rect key="frame" x="160" y="107" width="120" height="31"/>
+                        </datePicker>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add New Project" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FDj-vJ-j84">
+                            <rect key="frame" x="20" y="15" width="114.5" height="18"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Date" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l9I-nP-Xjo">
+                            <rect key="frame" x="20" y="83" width="62" height="16"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End Date" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CPZ-qi-Qcf">
+                            <rect key="frame" x="224.5" y="83" width="55.5" height="16"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3iP-bv-tn9">
+                            <rect key="frame" x="246" y="5" width="44" height="31"/>
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" image="multiply.circle" catalog="system"/>
+                            <connections>
+                                <action selector="closeButton:" destination="-1" eventType="touchUpInside" id="vhv-LT-1gf"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HPi-67-Mjw">
+                            <rect key="frame" x="20" y="169" width="260" height="31"/>
+                            <color key="backgroundColor" name="color7"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Add Task">
+                                <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </buttonConfiguration>
+                            <connections>
+                                <action selector="addTaskButton:" destination="-1" eventType="touchUpInside" id="hnb-Zc-iPQ"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="FDj-vJ-j84" firstAttribute="top" secondItem="M5q-HC-9pi" secondAttribute="top" constant="15" id="173-a6-yKE"/>
+                        <constraint firstItem="tci-eG-V3d" firstAttribute="width" secondItem="M5q-HC-9pi" secondAttribute="width" multiplier="0.4" id="6SN-Ux-ALt"/>
+                        <constraint firstItem="EYm-Tl-67N" firstAttribute="top" secondItem="FDj-vJ-j84" secondAttribute="bottom" constant="8" id="DIF-uU-G7o"/>
+                        <constraint firstAttribute="width" constant="300" id="ELg-Ym-oJ7"/>
+                        <constraint firstAttribute="trailing" secondItem="CPZ-qi-Qcf" secondAttribute="trailing" constant="20" id="ElA-Yk-wwm"/>
+                        <constraint firstItem="tci-eG-V3d" firstAttribute="top" secondItem="l9I-nP-Xjo" secondAttribute="bottom" constant="8" id="Hpa-qs-oOv"/>
+                        <constraint firstItem="l9I-nP-Xjo" firstAttribute="top" secondItem="EYm-Tl-67N" secondAttribute="bottom" constant="8" id="JW8-tg-Ww3"/>
+                        <constraint firstItem="8ZP-l8-hG2" firstAttribute="top" secondItem="CPZ-qi-Qcf" secondAttribute="bottom" constant="8" id="Pra-Vz-qNe"/>
+                        <constraint firstAttribute="trailing" secondItem="HPi-67-Mjw" secondAttribute="trailing" constant="20" id="QPS-GS-ePk"/>
+                        <constraint firstAttribute="bottom" secondItem="HPi-67-Mjw" secondAttribute="bottom" constant="20" id="Tvm-op-62i"/>
+                        <constraint firstItem="FDj-vJ-j84" firstAttribute="leading" secondItem="M5q-HC-9pi" secondAttribute="leading" constant="20" symbolic="YES" id="Vjo-fk-zxK"/>
+                        <constraint firstItem="tci-eG-V3d" firstAttribute="leading" secondItem="M5q-HC-9pi" secondAttribute="leading" constant="20" id="WXs-kS-6We"/>
+                        <constraint firstAttribute="trailing" secondItem="8ZP-l8-hG2" secondAttribute="trailing" constant="20" id="ZKi-S0-AIq"/>
+                        <constraint firstAttribute="trailing" secondItem="EYm-Tl-67N" secondAttribute="trailing" constant="20" id="ars-ef-jSG"/>
+                        <constraint firstItem="3iP-bv-tn9" firstAttribute="top" secondItem="M5q-HC-9pi" secondAttribute="top" constant="5" id="cGu-wq-FRn"/>
+                        <constraint firstItem="8ZP-l8-hG2" firstAttribute="width" secondItem="M5q-HC-9pi" secondAttribute="width" multiplier="0.4" id="im1-af-LrJ"/>
+                        <constraint firstItem="CPZ-qi-Qcf" firstAttribute="top" secondItem="EYm-Tl-67N" secondAttribute="bottom" constant="8" id="pPl-JV-HzN"/>
+                        <constraint firstItem="EYm-Tl-67N" firstAttribute="leading" secondItem="M5q-HC-9pi" secondAttribute="leading" constant="20" symbolic="YES" id="tbl-xh-gea"/>
+                        <constraint firstAttribute="trailing" secondItem="3iP-bv-tn9" secondAttribute="trailing" constant="10" id="vTG-mG-Qvp"/>
+                        <constraint firstItem="HPi-67-Mjw" firstAttribute="leading" secondItem="M5q-HC-9pi" secondAttribute="leading" constant="20" id="vTk-sf-hRH"/>
+                        <constraint firstAttribute="height" constant="220" id="x4l-vK-LWu"/>
+                        <constraint firstItem="l9I-nP-Xjo" firstAttribute="leading" secondItem="M5q-HC-9pi" secondAttribute="leading" constant="20" id="y1q-Xd-uoO"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="M5q-HC-9pi" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ViQ-o2-VHQ"/>
+                <constraint firstItem="M5q-HC-9pi" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Z2g-uU-7QD"/>
+            </constraints>
+            <point key="canvasLocation" x="186.95652173913044" y="-19.419642857142858"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="multiply.circle" catalog="system" width="128" height="121"/>
+        <namedColor name="color7">
+            <color red="0.56499999761581421" green="0.87800002098083496" blue="0.93699997663497925" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="addTaskViewController" customModule="Candor" customModuleProvider="target">
+            <connections>
+                <outlet property="addTaskButtonOutlet" destination="4B7-Qr-zwg" id="3Cd-tx-FcE"/>
+                <outlet property="addTaskTextFieldOutlet" destination="UzX-i6-TWX" id="Cqr-uh-wZi"/>
+                <outlet property="assignedToPullDownButtonOutlet" destination="5gJ-HY-Toz" id="E9E-Un-EMY"/>
+                <outlet property="closeButtonOutlet" destination="GdK-gy-dbm" id="VX7-6H-d0B"/>
+                <outlet property="innerView" destination="17b-Ve-9k3" id="NDq-nh-cLE"/>
+                <outlet property="priorityPullDownButtonOutlet" destination="3KA-fX-RF1" id="Ncg-PB-mfd"/>
+                <outlet property="taskDatePickerOutlet" destination="SOe-pM-qeC" id="YcY-3p-M66"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="17b-Ve-9k3">
+                    <rect key="frame" x="57" y="328" width="300" height="240"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b2f-19-1hG">
+                            <rect key="frame" x="20" y="8" width="35" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UzX-i6-TWX">
+                            <rect key="frame" x="30" y="31" width="240" height="34"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GdK-gy-dbm">
+                            <rect key="frame" x="272" y="8" width="20" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="20" id="KQn-bn-Wr5"/>
+                                <constraint firstAttribute="height" constant="20" id="MZv-ju-9TE"/>
+                            </constraints>
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" image="multiply.circle" catalog="system"/>
+                            <connections>
+                                <action selector="closeButton:" destination="-1" eventType="touchUpInside" id="cDZ-hE-OS0"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3KA-fX-RF1">
+                            <rect key="frame" x="236" y="75" width="49" height="30"/>
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <menu key="menu" id="N0d-TB-8fl">
+                                <children>
+                                    <command title="Item 1" id="eqU-c3-UWh"/>
+                                    <command title="Item 2" id="brj-Gc-IKX"/>
+                                </children>
+                            </menu>
+                            <state key="normal" title="Priority"/>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Due Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zmX-ae-Oie">
+                            <rect key="frame" x="20" y="116" width="64" height="18"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5gJ-HY-Toz">
+                            <rect key="frame" x="8" y="75" width="131.5" height="31"/>
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <menu key="menu" id="zQW-ZP-wop">
+                                <children>
+                                    <command title="Item 1" id="Tis-Ci-emo"/>
+                                    <command title="Item 2" id="8Jo-pp-PqD"/>
+                                </children>
+                            </menu>
+                            <state key="normal" title="Assigned To" image="person" catalog="system">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <buttonConfiguration key="configuration" style="plain" image="person" catalog="system" title="Assigned To" imagePadding="10">
+                                <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </buttonConfiguration>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4B7-Qr-zwg">
+                            <rect key="frame" x="70" y="184" width="160" height="31"/>
+                            <color key="backgroundColor" name="color8"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="160" id="5ui-vA-Znp"/>
+                            </constraints>
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Add Task"/>
+                            <connections>
+                                <action selector="addTaskButton:" destination="-1" eventType="touchUpInside" id="Soh-Uh-XvR"/>
+                            </connections>
+                        </button>
+                        <datePicker contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="SOe-pM-qeC">
+                            <rect key="frame" x="20" y="137" width="130" height="31"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="130" id="Uab-x9-Bku"/>
+                            </constraints>
+                        </datePicker>
+                    </subviews>
+                    <color key="backgroundColor" name="color6"/>
+                    <constraints>
+                        <constraint firstItem="SOe-pM-qeC" firstAttribute="top" secondItem="zmX-ae-Oie" secondAttribute="bottom" constant="3" id="3Jf-dl-mXf"/>
+                        <constraint firstAttribute="height" constant="240" id="3tj-wC-hGk"/>
+                        <constraint firstAttribute="trailing" secondItem="GdK-gy-dbm" secondAttribute="trailing" constant="8" id="9ty-I5-VAm"/>
+                        <constraint firstItem="5gJ-HY-Toz" firstAttribute="leading" secondItem="17b-Ve-9k3" secondAttribute="leading" constant="8" id="Aay-gH-xId"/>
+                        <constraint firstAttribute="width" constant="300" id="Npg-Us-c2F"/>
+                        <constraint firstItem="GdK-gy-dbm" firstAttribute="top" secondItem="17b-Ve-9k3" secondAttribute="top" constant="8" id="PGv-lE-xol"/>
+                        <constraint firstItem="3KA-fX-RF1" firstAttribute="top" secondItem="UzX-i6-TWX" secondAttribute="bottom" constant="10" id="RvA-6f-jkB"/>
+                        <constraint firstAttribute="trailing" secondItem="3KA-fX-RF1" secondAttribute="trailing" constant="15" id="S4t-WD-OFN"/>
+                        <constraint firstAttribute="trailing" secondItem="UzX-i6-TWX" secondAttribute="trailing" constant="30" id="ZMk-qa-aC0"/>
+                        <constraint firstItem="SOe-pM-qeC" firstAttribute="leading" secondItem="17b-Ve-9k3" secondAttribute="leading" constant="20" symbolic="YES" id="au6-Lf-3K1"/>
+                        <constraint firstItem="zmX-ae-Oie" firstAttribute="top" secondItem="5gJ-HY-Toz" secondAttribute="bottom" constant="10" id="cLO-Yv-S8x"/>
+                        <constraint firstItem="b2f-19-1hG" firstAttribute="leading" secondItem="17b-Ve-9k3" secondAttribute="leading" constant="20" symbolic="YES" id="hFR-xP-mMb"/>
+                        <constraint firstItem="UzX-i6-TWX" firstAttribute="top" secondItem="b2f-19-1hG" secondAttribute="bottom" constant="2" id="jMI-BV-t5i"/>
+                        <constraint firstItem="b2f-19-1hG" firstAttribute="top" secondItem="17b-Ve-9k3" secondAttribute="top" constant="8" id="kh7-uz-LvQ"/>
+                        <constraint firstItem="5gJ-HY-Toz" firstAttribute="top" secondItem="UzX-i6-TWX" secondAttribute="bottom" constant="10" id="l6h-tV-ale"/>
+                        <constraint firstItem="UzX-i6-TWX" firstAttribute="leading" secondItem="17b-Ve-9k3" secondAttribute="leading" constant="30" id="m5l-z0-NNx"/>
+                        <constraint firstItem="zmX-ae-Oie" firstAttribute="leading" secondItem="17b-Ve-9k3" secondAttribute="leading" constant="20" symbolic="YES" id="ryi-gS-uad"/>
+                        <constraint firstItem="4B7-Qr-zwg" firstAttribute="centerX" secondItem="17b-Ve-9k3" secondAttribute="centerX" id="tjs-eM-cAS"/>
+                        <constraint firstItem="4B7-Qr-zwg" firstAttribute="top" secondItem="SOe-pM-qeC" secondAttribute="bottom" constant="16" id="toK-qB-VC4"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="17b-Ve-9k3" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="88H-VH-71q"/>
+                <constraint firstItem="17b-Ve-9k3" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="jYZ-0V-2K2"/>
+            </constraints>
+            <point key="canvasLocation" x="627.536231884058" y="418.52678571428572"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="multiply.circle" catalog="system" width="128" height="121"/>
+        <image name="person" catalog="system" width="128" height="117"/>
+        <namedColor name="color6">
+            <color red="0.28200000524520874" green="0.79199999570846558" blue="0.89399999380111694" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="color8">
+            <color red="0.67799997329711914" green="0.9100000262260437" blue="0.9570000171661377" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
