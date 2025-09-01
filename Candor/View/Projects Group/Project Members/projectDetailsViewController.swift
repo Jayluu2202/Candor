@@ -21,6 +21,8 @@ class projectDetailsViewController: UIViewController,QLPreviewControllerDataSour
     @IBOutlet weak var pullDownButtonStackView: UIStackView!
     @IBOutlet weak var documentsTableView: UITableView!
     
+    
+    
     private let deleteSectionVM = DeleteTaskStatusSectionVM()
     
     private let sectionViewModel = GetProjectTaskSectionNameVM()

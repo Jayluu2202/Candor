@@ -16,7 +16,7 @@ class projectsTab: UIView {
     @IBOutlet weak var logoBGGradientView: UIView!
     
     let projectsViewModel = ProjectsVM()
-    
+    let checkVar = MembersVM()
     override func awakeFromNib() {
         super.awakeFromNib()
         setupTableView()
