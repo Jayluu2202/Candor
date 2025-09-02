@@ -128,7 +128,7 @@ class tagsCollectionViewCell: UICollectionViewCell, UITextFieldDelegate {
         layer.borderWidth = 1
         
         // Make text color more prominent
-        tagNameLabelOutlet.textColor = UIColor.systemBlue
+        tagNameLabelOutlet.textColor = UIColor.black
         tagNameLabelOutlet.font = UIFont.systemFont(ofSize: 12, weight: .medium)
         tagNameLabelOutlet.textAlignment = .center
     }
@@ -141,10 +141,9 @@ class tagsCollectionViewCell: UICollectionViewCell, UITextFieldDelegate {
         deleteButton.isHidden = true
         
         // Style for add button
-        backgroundColor = UIColor.systemGray6
-        layer.borderColor = UIColor.systemGray4.cgColor
-        layer.borderWidth = 1
-//        layer.borderStyle = CGBorderStyle.
+        backgroundColor = .clear
+        layer.borderColor = UIColor.clear.cgColor
+        layer.borderWidth = 0
         
         // Configure add button appearance
         addTagButtonOutlet.setTitleColor(.systemBlue, for: .normal)
@@ -234,6 +233,6 @@ class tagsCollectionViewCell: UICollectionViewCell, UITextFieldDelegate {
         // Limit tag length to reasonable size
         let currentText = textField.text ?? ""
         let newLength = currentText.count + string.count - range.length
-        return newLength <= 20 // Reasonable tag length limit
+        return newLength <= 30 // Reasonable tag length limit
     }
 }
