@@ -782,7 +782,7 @@ class inDetailTaskViewController: UIViewController {
         
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         alert.addAction(UIAlertAction(title: "Delete", style: .destructive) { [weak self] _ in
-            self?.deleteCommentsVM.deleteComment(commentId: commentId, taskId: self?.taskId ?? 0)
+            self?.deleteCommentsVM.deleteComment(commentId: commentId)
         })
         
         present(alert, animated: true)

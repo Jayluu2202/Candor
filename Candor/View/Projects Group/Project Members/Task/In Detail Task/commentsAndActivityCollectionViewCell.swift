@@ -22,13 +22,15 @@ class commentsAndActivityCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var userProfileImage: UIImageView!
     @IBOutlet weak var userNameInitialsLabel: UILabel!
     
-    // Add date header outlets for activity
-    @IBOutlet weak var dateHeaderView: UIView!
-    @IBOutlet weak var dateHeaderLabel: UILabel!
+    
+    // NEW: Add outlets for file attachments
+    @IBOutlet weak var fileAttachmentsStackView: UIStackView!
+    @IBOutlet weak var fileAttachmentsHeightConstraint: NSLayoutConstraint!
     
     // Add these properties at the top of the class
     var onDeleteComment: (() -> Void)?
     var commentId: Int = 0
+    var onFileDownload: ((TaskCommFile) -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -44,14 +46,17 @@ class commentsAndActivityCollectionViewCell: UICollectionViewCell {
         userProfileImage.layer.cornerRadius = userProfileImage.frame.width / 2
         userProfileImage.layer.masksToBounds = true
         
-        // Hide date header by default
-        dateHeaderView?.isHidden = true
+        // Setup file attachments stack view
+        fileAttachmentsStackView?.axis = .vertical
+        fileAttachmentsStackView?.spacing = 8
+        fileAttachmentsStackView?.distribution = .fill
+        fileAttachmentsStackView?.alignment = .fill
+        fileAttachmentsStackView?.isHidden = true
     }
 
     func configureForComment(_ comment: GetComment) {
         commentInnerView.isHidden = false
         activityInnerView.isHidden = true
-        dateHeaderView?.isHidden = true
         
         userNameLabel.text = "\(comment.user.firstName) \(comment.user.lastName)"
         userCommentsLabel.text = comment.message
@@ -71,6 +76,141 @@ class commentsAndActivityCollectionViewCell: UICollectionViewCell {
         
         // Show/hide delete button based on user permissions
         deleteButtonOutlet.isHidden = false
+        
+        // NEW: Configure file attachments
+        configureFileAttachments(comment.taskCommFiles)
+    }
+
+    // NEW: Configure file attachments
+    private func configureFileAttachments(_ files: [TaskCommFile]) {
+        // Clear existing file views
+        fileAttachmentsStackView?.arrangedSubviews.forEach { $0.removeFromSuperview() }
+        
+        guard !files.isEmpty else {
+            fileAttachmentsStackView?.isHidden = true
+            fileAttachmentsHeightConstraint?.constant = 0
+            return
+        }
+        
+        fileAttachmentsStackView?.isHidden = false
+        
+        for file in files {
+            let fileView = createFileAttachmentView(for: file)
+            fileAttachmentsStackView?.addArrangedSubview(fileView)
+        }
+        
+        // Update height constraint based on number of files
+        let fileHeight: CGFloat = 44 // Height per file
+        let spacing: CGFloat = 8 * CGFloat(max(0, files.count - 1)) // Spacing between files
+        fileAttachmentsHeightConstraint?.constant = CGFloat(files.count) * fileHeight + spacing
+    }
+    
+    // NEW: Create individual file attachment view
+    private func createFileAttachmentView(for file: TaskCommFile) -> UIView {
+        let containerView = UIView()
+        containerView.backgroundColor = UIColor.systemGray6
+        containerView.layer.cornerRadius = 8
+        containerView.layer.borderWidth = 1
+        containerView.layer.borderColor = UIColor.systemGray4.cgColor
+        
+        // File icon
+        let fileIconImageView = UIImageView()
+        fileIconImageView.image = getFileIcon(for: file.name)
+        fileIconImageView.contentMode = .scaleAspectFit
+        fileIconImageView.tintColor = UIColor.systemBlue
+        fileIconImageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        // File name label
+        let fileNameLabel = UILabel()
+        fileNameLabel.text = file.name
+        fileNameLabel.font = UIFont.systemFont(ofSize: 14, weight: .medium)
+        fileNameLabel.textColor = UIColor.label
+        fileNameLabel.numberOfLines = 1
+        fileNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Download button
+        let downloadButton = UIButton(type: .system)
+        downloadButton.setImage(UIImage(systemName: "arrow.down.circle"), for: .normal)
+        downloadButton.tintColor = UIColor.systemBlue
+        downloadButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Add tap gesture to the entire container
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(fileAttachmentTapped(_:)))
+        containerView.addGestureRecognizer(tapGesture)
+        containerView.tag = file.id // Store file ID in tag
+        
+        // Add subviews
+        containerView.addSubview(fileIconImageView)
+        containerView.addSubview(fileNameLabel)
+        containerView.addSubview(downloadButton)
+        
+        // Setup constraints
+        NSLayoutConstraint.activate([
+            containerView.heightAnchor.constraint(equalToConstant: 44),
+            
+            fileIconImageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 12),
+            fileIconImageView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
+            fileIconImageView.widthAnchor.constraint(equalToConstant: 20),
+            fileIconImageView.heightAnchor.constraint(equalToConstant: 20),
+            
+            fileNameLabel.leadingAnchor.constraint(equalTo: fileIconImageView.trailingAnchor, constant: 8),
+            fileNameLabel.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
+            fileNameLabel.trailingAnchor.constraint(equalTo: downloadButton.leadingAnchor, constant: -8),
+            
+            downloadButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -12),
+            downloadButton.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
+            downloadButton.widthAnchor.constraint(equalToConstant: 24),
+            downloadButton.heightAnchor.constraint(equalToConstant: 24)
+        ])
+        
+        return containerView
+    }
+    
+    // NEW: Get appropriate file icon based on file extension
+    private func getFileIcon(for fileName: String) -> UIImage? {
+        let fileExtension = (fileName as NSString).pathExtension.lowercased()
+        
+        switch fileExtension {
+        case "jpg", "jpeg", "png", "gif", "bmp", "tiff":
+            return UIImage(systemName: "photo")
+        case "pdf":
+            return UIImage(systemName: "doc.richtext")
+        case "doc", "docx":
+            return UIImage(systemName: "doc.text")
+        case "xls", "xlsx":
+            return UIImage(systemName: "tablecells")
+        case "ppt", "pptx":
+            return UIImage(systemName: "rectangle.on.rectangle")
+        case "txt":
+            return UIImage(systemName: "doc.plaintext")
+        case "zip", "rar", "7z":
+            return UIImage(systemName: "archivebox")
+        default:
+            return UIImage(systemName: "doc")
+        }
+    }
+    
+    // NEW: Handle file attachment tap
+    @objc private func fileAttachmentTapped(_ sender: UITapGestureRecognizer) {
+        guard let containerView = sender.view,
+              let files = getCurrentFiles() else { return }
+        
+        let fileId = containerView.tag
+        if let file = files.first(where: { $0.id == fileId }) {
+            onFileDownload?(file)
+        }
+    }
+    
+    // NEW: Helper to get current files (you might need to store this in the cell)
+    private var currentFiles: [TaskCommFile] = []
+    
+    private func getCurrentFiles() -> [TaskCommFile]? {
+        return currentFiles
+    }
+    
+    // Update configureForComment to store files
+    private func storeCurrentFiles(_ files: [TaskCommFile]) {
+        currentFiles = files
     }
 
     // UPDATED: Fixed activity configuration method
@@ -78,11 +218,9 @@ class commentsAndActivityCollectionViewCell: UICollectionViewCell {
         commentInnerView.isHidden = true
         activityInnerView.isHidden = false
         
-        // Show/hide date header
-        dateHeaderView?.isHidden = !showDateHeader
-        if showDateHeader && !sectionDate.isEmpty {
-            dateHeaderLabel?.text = formatSectionDate(sectionDate)
-        }
+        // Hide file attachments for activity
+        fileAttachmentsStackView?.isHidden = true
+        fileAttachmentsHeightConstraint?.constant = 0
         
         // FIXED: Parse HTML content and create readable text with user name
         let userName = "\(activity.user.firstName) \(activity.user.lastName)"

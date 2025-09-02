@@ -88,11 +88,11 @@
                                     <constraint firstAttribute="width" constant="20" id="R7A-7u-nqC"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="cpv-B8-vnv">
-                                <rect key="frame" x="40" y="25" width="175" height="70"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="cpv-B8-vnv">
+                                <rect key="frame" x="40" y="25" width="175" height="38"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tJY-zx-5tg">
-                                        <rect key="frame" x="0.0" y="0.0" width="175" height="20"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tJY-zx-5tg">
+                                        <rect key="frame" x="0.0" y="0.0" width="175" height="17"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="175" id="hbA-Kb-FUW"/>
                                         </constraints>
@@ -100,8 +100,8 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dpa-kf-iHR">
-                                        <rect key="frame" x="0.0" y="50" width="175" height="20"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comments label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dpa-kf-iHR">
+                                        <rect key="frame" x="0.0" y="21" width="175" height="17"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="175" id="Knm-9K-Mxp"/>
                                         </constraints>
@@ -123,18 +123,26 @@
                                     <action selector="deleteButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="EeW-ZA-EOj"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="8Uc-ar-AFj">
+                                <rect key="frame" x="45" y="71" width="185" height="0.0"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" id="fYz-gb-hHb"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" name="color8"/>
                         <constraints>
                             <constraint firstItem="cpv-B8-vnv" firstAttribute="leading" secondItem="cB6-b7-EYt" secondAttribute="trailing" constant="12" id="9bn-5w-I6G"/>
                             <constraint firstItem="dI4-1b-yvI" firstAttribute="leading" secondItem="yVl-bu-uYn" secondAttribute="leading" constant="8" id="AjW-eF-9fq"/>
+                            <constraint firstItem="8Uc-ar-AFj" firstAttribute="leading" secondItem="yVl-bu-uYn" secondAttribute="leading" constant="45" id="DbQ-Ps-Ysn"/>
                             <constraint firstItem="MYm-mK-h4k" firstAttribute="centerY" secondItem="yVl-bu-uYn" secondAttribute="centerY" id="KR9-nK-wfq"/>
                             <constraint firstItem="cB6-b7-EYt" firstAttribute="centerY" secondItem="yVl-bu-uYn" secondAttribute="centerY" id="Qyd-nf-XLj"/>
+                            <constraint firstAttribute="trailing" secondItem="8Uc-ar-AFj" secondAttribute="trailing" constant="70" id="V8E-3C-LRN"/>
                             <constraint firstItem="dI4-1b-yvI" firstAttribute="centerY" secondItem="yVl-bu-uYn" secondAttribute="centerY" id="Yhk-fU-1ak"/>
-                            <constraint firstAttribute="bottom" secondItem="cpv-B8-vnv" secondAttribute="bottom" constant="25" id="aZn-mi-Wtp"/>
-                            <constraint firstItem="cpv-B8-vnv" firstAttribute="top" secondItem="yVl-bu-uYn" secondAttribute="top" constant="25" id="jVy-yL-Gwv"/>
                             <constraint firstItem="MYm-mK-h4k" firstAttribute="leading" secondItem="cpv-B8-vnv" secondAttribute="trailing" constant="12" id="owX-py-O2O"/>
+                            <constraint firstItem="cpv-B8-vnv" firstAttribute="top" secondItem="yVl-bu-uYn" secondAttribute="top" constant="25" id="rsR-zq-sp4"/>
                             <constraint firstItem="cB6-b7-EYt" firstAttribute="leading" secondItem="yVl-bu-uYn" secondAttribute="leading" constant="8" id="rzy-7m-Suz"/>
+                            <constraint firstItem="8Uc-ar-AFj" firstAttribute="top" secondItem="cpv-B8-vnv" secondAttribute="bottom" constant="8" symbolic="YES" id="yqj-11-KFU"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -155,6 +163,8 @@
                 <outlet property="activityInnerView" destination="itK-Ix-5pc" id="VcS-yR-aNj"/>
                 <outlet property="commentInnerView" destination="yVl-bu-uYn" id="b1J-yK-rEd"/>
                 <outlet property="deleteButtonOutlet" destination="MYm-mK-h4k" id="jlH-77-UV7"/>
+                <outlet property="fileAttachmentsHeightConstraint" destination="fYz-gb-hHb" id="TNV-dj-sW3"/>
+                <outlet property="fileAttachmentsStackView" destination="8Uc-ar-AFj" id="D0p-sH-YYN"/>
                 <outlet property="taskUpdateDetails" destination="sBa-cc-fXz" id="Fsi-jx-ThA"/>
                 <outlet property="taskUpdateTime" destination="Bdb-A4-6Ps" id="hIe-Wh-Zfs"/>
                 <outlet property="userCommentsLabel" destination="Dpa-kf-iHR" id="Q8t-ck-MN2"/>
