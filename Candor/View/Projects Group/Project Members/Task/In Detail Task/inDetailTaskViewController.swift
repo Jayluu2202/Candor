@@ -28,7 +28,7 @@ class inDetailTaskViewController: UIViewController {
     
     var taskId: Int = 0
     private var tags: [String] = []
-    private var subTasks: [SubTaskData] = []
+    private var subTasks: [InnerSubTaskData] = []
     private var taskData: InnerTaskData?
     private var availableMembers: [InnerAssignedUser] = []
     private var availableStatuses: [InnerTaskStatus] = []
@@ -195,8 +195,9 @@ class inDetailTaskViewController: UIViewController {
         addSubTaskVM.onSuccess = { [weak self] response in
             DispatchQueue.main.async {
                 if let subTaskData = response.data {
-                    self?.subTasks.append(subTaskData)
-                    self?.subTasksCollectionView.reloadData()
+                    // Convert SubTaskData to InnerSubTaskData or modify your API to return InnerSubTaskData
+                    // For now, just refetch the task details to get updated data
+                    self?.fetchTaskDetails()
                 } else {
                     // If API doesn't return the subtask, fetch again
                     self?.fetchTaskDetails()
@@ -441,7 +442,7 @@ class inDetailTaskViewController: UIViewController {
         
         // Initialize subtasks (if available in your API response)
         // For now, keeping as empty array since subtasks aren't in the current model
-        self.subTasks = []
+        self.subTasks = taskData.subTasks
         subTasksCollectionView.reloadData()
         
         // Set current selections
@@ -1059,6 +1060,62 @@ extension SubTaskData {
             statusId: self.statusId,
             createdAt: self.createdAt,
             updatedAt: self.updatedAt
+        )
+    }
+}
+// MARK: - Mutable InnerSubTaskData Extension
+extension InnerSubTaskData {
+    func withUpdatedCompletion(_ isCompleted: Bool) -> InnerSubTaskData {
+        return InnerSubTaskData(
+            tags: self.tags,
+            id: self.id,
+            title: self.title,
+            assignedTo: self.assignedTo,
+            projectId: self.projectId,
+            priority: self.priority,
+            dueDate: self.dueDate,
+            createdAt: self.createdAt,
+            description: self.description,
+            isCompleted: isCompleted,
+            internId: self.internId,
+            taskOwnerId: self.taskOwnerId,
+            taskType: self.taskType
+        )
+    }
+    
+    func withUpdatedTitle(_ title: String) -> InnerSubTaskData {
+        return InnerSubTaskData(
+            tags: self.tags,
+            id: self.id,
+            title: title,
+            assignedTo: self.assignedTo,
+            projectId: self.projectId,
+            priority: self.priority,
+            dueDate: self.dueDate,
+            createdAt: self.createdAt,
+            description: self.description,
+            isCompleted: self.isCompleted,
+            internId: self.internId,
+            taskOwnerId: self.taskOwnerId,
+            taskType: self.taskType
+        )
+    }
+    
+    func withUpdatedDescription(_ description: String) -> InnerSubTaskData {
+        return InnerSubTaskData(
+            tags: self.tags,
+            id: self.id,
+            title: self.title,
+            assignedTo: self.assignedTo,
+            projectId: self.projectId,
+            priority: self.priority,
+            dueDate: self.dueDate,
+            createdAt: self.createdAt,
+            description: description,
+            isCompleted: self.isCompleted,
+            internId: self.internId,
+            taskOwnerId: self.taskOwnerId,
+            taskType: self.taskType
         )
     }
 }

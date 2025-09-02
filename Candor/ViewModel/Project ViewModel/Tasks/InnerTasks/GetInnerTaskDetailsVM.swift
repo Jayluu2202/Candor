@@ -13,6 +13,7 @@ class GetInnerTaskDetailsVM {
     // MARK: - Callbacks
     var onSuccess: ((InnerTaskData) -> Void)?
     var onSuccessWithDetails: ((InnerTaskData, [InnerAssignedUser], [InnerTaskStatus]) -> Void)?
+    var onSuccessWithSubTasks: ((InnerTaskData, [InnerAssignedUser], [InnerTaskStatus], [InnerSubTaskData]) -> Void)?
     var onError: ((String) -> Void)?
     
     // MARK: - Fetch Task
@@ -73,6 +74,7 @@ class GetInnerTaskDetailsVM {
                 let decodedResponse = try JSONDecoder().decode(GetInnerTaskResponse.self, from: data)
                 print("✅ Decoding success")
                 print("📄 Task Title: \(decodedResponse.data.taskData.title)")
+                print("🔢 SubTasks Count: \(decodedResponse.data.taskData.subTasks.count)")
                 
                 DispatchQueue.main.async {
                     // Call both callbacks if they exist

@@ -90,7 +90,7 @@ class subTasksCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Configuration Methods
     
-    func configureForExistingSubTask(_ subTask: SubTaskData) {
+    func configureForExistingSubTask(_ subTask: InnerSubTaskData) {
         // Show subtask components, hide add button
         checkMarkButtonOutlet.isHidden = false
         subTaskNameLabel.isHidden = false
