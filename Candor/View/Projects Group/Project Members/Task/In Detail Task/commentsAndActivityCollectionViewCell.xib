@@ -56,7 +56,6 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemGrayColor"/>
                         <constraints>
                             <constraint firstItem="Bdb-A4-6Ps" firstAttribute="centerY" secondItem="itK-Ix-5pc" secondAttribute="centerY" id="1O0-cc-Sim"/>
                             <constraint firstItem="kMk-aK-wWf" firstAttribute="leading" secondItem="itK-Ix-5pc" secondAttribute="leading" constant="8" id="UJH-e4-Oi0"/>
@@ -130,7 +129,6 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" name="color8"/>
                         <constraints>
                             <constraint firstItem="cpv-B8-vnv" firstAttribute="leading" secondItem="cB6-b7-EYt" secondAttribute="trailing" constant="12" id="9bn-5w-I6G"/>
                             <constraint firstItem="dI4-1b-yvI" firstAttribute="leading" secondItem="yVl-bu-uYn" secondAttribute="leading" constant="8" id="AjW-eF-9fq"/>
@@ -182,12 +180,6 @@
         <namedColor name="color5">
             <color red="0.0" green="0.70599997043609619" blue="0.84700000286102295" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="color8">
-            <color red="0.67799997329711914" green="0.9100000262260437" blue="0.9570000171661377" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <systemColor name="systemGrayColor">
-            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

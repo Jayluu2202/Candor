@@ -13,6 +13,7 @@ class dashboardTab: UIView {
     @IBOutlet weak var viewInScrollView: UIView!
     @IBOutlet weak var scrollViewHeightConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var logoBGGradientView: UIView!
     @IBOutlet weak var menuButtonOutlet: UIButton!
     @IBOutlet weak var welcomeTextLabel: UILabel!
     ///project part
@@ -31,7 +32,7 @@ class dashboardTab: UIView {
     @IBOutlet weak var clientAndLeadLine: UIView!
     @IBOutlet weak var dashboardClientAndLeadCollectionView: UICollectionView!
     
-    @IBOutlet weak var logoBGGradientView: UIView!
+    
     
     let dashBoardViewModel = DashboardVM()
     var singleEmployeeDashboardViewModel = SingleEmployeeInfoVM()
