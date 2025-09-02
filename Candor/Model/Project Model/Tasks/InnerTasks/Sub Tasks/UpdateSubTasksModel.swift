@@ -9,19 +9,19 @@ import Foundation
 
 // MARK: - Update Sub Task Request Model
 struct UpdateSubTaskRequest: Codable {
-    let taskId: String
+    let subTaskId: String
     let title: String
-    let assignedTo: Int
+    let assignedTo: Int?
     let dueDate: String
     let priority: String
     let description: String
     let status: String
     let tags: [String]
     let statusId: String
-    // let isCompleted: Bool? // Uncomment if you need this later
+    let isCompleted: Bool? // Uncomment if you need this later
     
     enum CodingKeys: String, CodingKey {
-        case taskId = "task_id"
+        case subTaskId = "sub_task_id"
         case title
         case assignedTo = "assigned_to"
         case dueDate = "due_date"
@@ -30,7 +30,7 @@ struct UpdateSubTaskRequest: Codable {
         case status
         case tags
         case statusId = "status_id"
-        // case isCompleted = "is_completed"
+        case isCompleted = "is_completed"
     }
 }
 

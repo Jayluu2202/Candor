@@ -36,6 +36,13 @@ class commentsAndActivityCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
         setupUI()
+        activityInnerView.layer.cornerRadius = 8
+        activityInnerView.layer.borderColor = UIColor.black.cgColor
+        activityInnerView.layer.borderWidth = 1
+        
+        commentInnerView.layer.cornerRadius = 8
+        commentInnerView.layer.borderColor = UIColor.black.cgColor
+        commentInnerView.layer.borderWidth = 1
     }
     
     private func setupUI() {

@@ -53,6 +53,7 @@ struct APIEndpoints{
     
     ///subtasks
     static var CreateSubTasks: String { return "\(baseURL)/create-sub-task"}
+    static var GetSubTasks: String { return "\(baseURL)/get-sub-task"}
     static var UpdateSubTasks: String { return "\(baseURL)/update-sub-task"}
     
     ///comments and activity

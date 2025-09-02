@@ -106,7 +106,10 @@
             <connections>
                 <outlet property="addTaskButtonOutlet" destination="6HA-2o-sAL" id="OQA-89-IBg"/>
                 <outlet property="checkMarkButtonOutlet" destination="ghh-DK-WQ4" id="Kys-Ea-a6G"/>
+                <outlet property="deleteSubTask" destination="GuZ-I8-fem" id="YOs-69-1Yr"/>
                 <outlet property="editCalenderTrashButtonStack" destination="dbR-5D-C1i" id="GrZ-C4-5ns"/>
+                <outlet property="editDueDate" destination="AIP-ax-OaQ" id="Fd3-al-HS2"/>
+                <outlet property="editSubTaskName" destination="iyG-3w-KMd" id="jPU-5Q-UQ7"/>
                 <outlet property="subTaskNameLabel" destination="XHx-P3-m3T" id="jPa-ut-u37"/>
             </connections>
             <point key="canvasLocation" x="371.01449275362324" y="136.60714285714286"/>

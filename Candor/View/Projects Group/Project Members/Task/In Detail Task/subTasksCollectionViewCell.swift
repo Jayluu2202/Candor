@@ -9,6 +9,9 @@ import UIKit
 
 class subTasksCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var deleteSubTask: UIButton!
+    @IBOutlet weak var editDueDate: UIButton!
+    @IBOutlet weak var editSubTaskName: UIButton!
     @IBOutlet weak var checkMarkButtonOutlet: UIButton!
     @IBOutlet weak var addTaskButtonOutlet: UIButton!
     @IBOutlet weak var subTaskNameLabel: UILabel!
@@ -124,13 +127,18 @@ class subTasksCollectionViewCell: UICollectionViewCell {
         layer.borderColor = UIColor.systemBlue.withAlphaComponent(0.3).cgColor
         layer.borderWidth = 1
         
-        // Create dashed border effect (since iOS doesn't have native dashed borders)
-//        layer.borderStyle = .solid // Keep solid for now, or implement custom dashed border
-        
         // Set add button title and styling
         addTaskButtonOutlet.setTitle("+ Add Sub Task", for: .normal)
         addTaskButtonOutlet.setTitleColor(.systemBlue, for: .normal)
         addTaskButtonOutlet.backgroundColor = UIColor.clear
+        
+        // Programmatically center the button
+        addTaskButtonOutlet.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            addTaskButtonOutlet.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            addTaskButtonOutlet.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+        ])
+        
     }
     
     private func updateCheckmarkAppearance(isCompleted: Bool) {

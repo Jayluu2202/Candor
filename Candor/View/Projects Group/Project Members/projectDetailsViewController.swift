@@ -21,8 +21,6 @@ class projectDetailsViewController: UIViewController,QLPreviewControllerDataSour
     @IBOutlet weak var pullDownButtonStackView: UIStackView!
     @IBOutlet weak var documentsTableView: UITableView!
     
-    
-    
     private let deleteSectionVM = DeleteTaskStatusSectionVM()
     
     private let sectionViewModel = GetProjectTaskSectionNameVM()
@@ -49,7 +47,6 @@ class projectDetailsViewController: UIViewController,QLPreviewControllerDataSour
     
     var projectId: Int = 0
     var fileURL: URL?
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -103,7 +100,6 @@ class projectDetailsViewController: UIViewController,QLPreviewControllerDataSour
         
         //delete tasks
         setupDeleteTaskVM()
-        
         setupFilterButtons()
         
         // Create actions for the pull-down menu
@@ -205,35 +201,35 @@ class projectDetailsViewController: UIViewController,QLPreviewControllerDataSour
     }
     
     private func setupAssignedToFilterMenu() {
-            var actions: [UIAction] = []
-            
-            // Add "All" option
-            let allAction = UIAction(title: "All", state: selectedAssignedToFilter == nil ? .on : .off) { [weak self] _ in
-                self?.selectedAssignedToFilter = nil
-                self?.assignedToPullDownButtonOutlet.setTitle("Assigned to", for: .normal)
+        var actions: [UIAction] = []
+        
+        // Add "All" option
+        let allAction = UIAction(title: "All", state: selectedAssignedToFilter == nil ? .on : .off) { [weak self] _ in
+            self?.selectedAssignedToFilter = nil
+            self?.assignedToPullDownButtonOutlet.setTitle("Assigned to", for: .normal)
+            self?.applyFilters()
+            self?.setupAssignedToFilterMenu()
+        }
+        actions.append(allAction)
+        
+        // Add project members
+        for member in projectMembers {
+            let memberName = "\(member.user.firstName) \(member.user.lastName)"
+            let isSelected = selectedAssignedToFilter == member.user.id
+            let action = UIAction(title: memberName, state: isSelected ? .on : .off) { [weak self] _ in
+                self?.selectedAssignedToFilter = member.user.id
+                self?.assignedToPullDownButtonOutlet.setTitle(memberName, for: .normal)
                 self?.applyFilters()
                 self?.setupAssignedToFilterMenu()
             }
-            actions.append(allAction)
-                        
-            // Add project members
-            for member in projectMembers {
-                let memberName = "\(member.user.firstName) \(member.user.lastName)"
-                let isSelected = selectedAssignedToFilter == member.user.id
-                let action = UIAction(title: memberName, state: isSelected ? .on : .off) { [weak self] _ in
-                    self?.selectedAssignedToFilter = member.user.id
-                    self?.assignedToPullDownButtonOutlet.setTitle(memberName, for: .normal)
-                    self?.applyFilters()
-                    self?.setupAssignedToFilterMenu()
-                }
-                actions.append(action)
-            }
-            
-            let menu = UIMenu(title: "Filter by Assigned To", options: .singleSelection, children: actions)
-            assignedToPullDownButtonOutlet.menu = menu
-            assignedToPullDownButtonOutlet.showsMenuAsPrimaryAction = true
+            actions.append(action)
         }
         
+        let menu = UIMenu(title: "Filter by Assigned To", options: .singleSelection, children: actions)
+        assignedToPullDownButtonOutlet.menu = menu
+        assignedToPullDownButtonOutlet.showsMenuAsPrimaryAction = true
+    }
+    
     private func setupCreatedByFilterMenu() {
         var actions: [UIAction] = []
         
@@ -436,27 +432,27 @@ class projectDetailsViewController: UIViewController,QLPreviewControllerDataSour
     }
     
     func topViewController(controller: UIViewController? = UIApplication.shared
-                            .connectedScenes
-                            .filter { $0.activationState == .foregroundActive }
-                            .compactMap { $0 as? UIWindowScene }
-                            .first?
-                            .windows
-                            .first { $0.isKeyWindow }?
-                            .rootViewController) -> UIViewController? {
-        
-        if let nav = controller as? UINavigationController {
-            return topViewController(controller: nav.visibleViewController)
-        }
-        if let tab = controller as? UITabBarController {
-            if let selected = tab.selectedViewController {
-                return topViewController(controller: selected)
+        .connectedScenes
+        .filter { $0.activationState == .foregroundActive }
+        .compactMap { $0 as? UIWindowScene }
+        .first?
+        .windows
+        .first { $0.isKeyWindow }?
+        .rootViewController) -> UIViewController? {
+            
+            if let nav = controller as? UINavigationController {
+                return topViewController(controller: nav.visibleViewController)
             }
+            if let tab = controller as? UITabBarController {
+                if let selected = tab.selectedViewController {
+                    return topViewController(controller: selected)
+                }
+            }
+            if let presented = controller?.presentedViewController {
+                return topViewController(controller: presented)
+            }
+            return controller
         }
-        if let presented = controller?.presentedViewController {
-            return topViewController(controller: presented)
-        }
-        return controller
-    }
     
     @IBAction func addSectionButton(_ sender: UIButton) {
         let addSectionVC = addTaskSectionViewController(nibName: "addTaskSectionViewController", bundle: nil)
@@ -482,8 +478,6 @@ class projectDetailsViewController: UIViewController,QLPreviewControllerDataSour
             presentAddTaskScreen()
         }
     }
-    
-    
     
     @IBAction func menuSegment(_ sender: UISegmentedControl) {
         
@@ -522,7 +516,6 @@ class projectDetailsViewController: UIViewController,QLPreviewControllerDataSour
         default:
             break
         }
-        
     }
     
     @IBAction func addNotesButton(_ sender: UIButton) {
@@ -542,7 +535,6 @@ class projectDetailsViewController: UIViewController,QLPreviewControllerDataSour
             addMemberVC.modalTransitionStyle = .crossDissolve
             addMemberVC.delegate = self
             addMemberVC.projectId = self.projectId
-            
             
             self.present(addMemberVC, animated: true)
         } else if menuSegmentOutlet.selectedSegmentIndex == 3 {
@@ -657,15 +649,15 @@ extension projectDetailsViewController: UITableViewDataSource, UITableViewDelega
             break
         }
     }
-
-
+    
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch menuSegmentOutlet.selectedSegmentIndex {
         case 0: // Tasks
             guard indexPath.section < sectionsNames.count else {
-                        print("Section index out of range: \(indexPath.section)")
-                        return UITableViewCell()
-                    }
+                print("Section index out of range: \(indexPath.section)")
+                return UITableViewCell()
+            }
             let sectionId = sectionsNames[indexPath.section].id
             let tasksInSection = sectionedTasks[sectionId] ?? []
             
@@ -678,13 +670,13 @@ extension projectDetailsViewController: UITableViewDataSource, UITableViewDelega
                 return cell
             } else {
                 guard indexPath.row < tasksInSection.count else {
-                                print("Row index out of range: \(indexPath.row) for section with \(tasksInSection.count) tasks")
-                                return UITableViewCell()
-                            }
+                    print("Row index out of range: \(indexPath.row) for section with \(tasksInSection.count) tasks")
+                    return UITableViewCell()
+                }
                 
                 let task = tasksInSection[indexPath.row]
                 let cell = tableView.dequeueReusableCell(withIdentifier: "taskTableViewCell", for: indexPath) as! taskTableViewCell
-
+                
                 cell.configure(with: task, projectId: projectId)
                 cell.delegate = self // Add this line to set the delegate
                 cell.selectionStyle = .none
@@ -700,9 +692,9 @@ extension projectDetailsViewController: UITableViewDataSource, UITableViewDelega
                 return cell
             } else {
                 guard indexPath.section < documents.count else {
-                                print("Document section index out of range: \(indexPath.section)")
-                                return UITableViewCell()
-                            }
+                    print("Document section index out of range: \(indexPath.section)")
+                    return UITableViewCell()
+                }
                 let cell = tableView.dequeueReusableCell(withIdentifier: "documentTableViewCell", for: indexPath) as! documentTableViewCell
                 
                 let document = documents[indexPath.section]
@@ -724,9 +716,9 @@ extension projectDetailsViewController: UITableViewDataSource, UITableViewDelega
                 return cell
             } else {
                 guard indexPath.section < projectMembers.count else {
-                                print("Member section index out of range: \(indexPath.section)")
-                                return UITableViewCell()
-                            }
+                    print("Member section index out of range: \(indexPath.section)")
+                    return UITableViewCell()
+                }
                 
                 let cell = tableView.dequeueReusableCell(withIdentifier: "memberTableViewCell", for: indexPath) as! memberTableViewCell
                 
@@ -748,9 +740,9 @@ extension projectDetailsViewController: UITableViewDataSource, UITableViewDelega
                 return cell
             } else {
                 guard indexPath.section < notes.count else {
-                                print("Note section index out of range: \(indexPath.section)")
-                                return UITableViewCell()
-                            }
+                    print("Note section index out of range: \(indexPath.section)")
+                    return UITableViewCell()
+                }
                 let cell = tableView.dequeueReusableCell(withIdentifier: "notesTableViewCell", for: indexPath) as! notesTableViewCell
                 
                 let note = notes[indexPath.section]
@@ -769,9 +761,9 @@ extension projectDetailsViewController: UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch menuSegmentOutlet.selectedSegmentIndex {
         case 0: // Tasks
-                let sectionId = sectionsNames[section].id
-                let tasksInSection = sectionedTasks[sectionId] ?? []
-                return max(1, tasksInSection.count)
+            let sectionId = sectionsNames[section].id
+            let tasksInSection = sectionedTasks[sectionId] ?? []
+            return max(1, tasksInSection.count)
         case 1: // Documents
             return 1
         case 2: // Members
@@ -794,12 +786,11 @@ extension projectDetailsViewController: UITableViewDataSource, UITableViewDelega
         guard menuSegmentOutlet.selectedSegmentIndex == 0 else {
             return nil
         }
-        
         // Add bounds check
-            guard section < sectionsNames.count else {
-                print("Section index out of range in header: \(section)")
-                return nil
-            }
+        guard section < sectionsNames.count else {
+            print("Section index out of range in header: \(section)")
+            return nil
+        }
         
         let sectionData = sectionsNames[section]
         
@@ -834,7 +825,7 @@ extension projectDetailsViewController: UITableViewDataSource, UITableViewDelega
         
         return headerView
     }
-
+    
     @objc private func deleteSectionTapped(_ sender: UIButton) {
         let sectionId = sender.tag
         
@@ -864,7 +855,7 @@ extension projectDetailsViewController: UITableViewDataSource, UITableViewDelega
         
         present(alert, animated: true)
     }
-
+    
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return menuSegmentOutlet.selectedSegmentIndex == 0 ? 44 : 0
@@ -901,10 +892,10 @@ extension projectDetailsViewController: UITableViewDataSource, UITableViewDelega
         }
         
         // Validate section index
-            guard indexPath.section < sectionsNames.count else {
-                print("Section index out of range in swipe actions: \(indexPath.section)")
-                return nil
-            }
+        guard indexPath.section < sectionsNames.count else {
+            print("Section index out of range in swipe actions: \(indexPath.section)")
+            return nil
+        }
         
         // Get the task for this row
         let sectionId = sectionsNames[indexPath.section].id
@@ -912,9 +903,9 @@ extension projectDetailsViewController: UITableViewDataSource, UITableViewDelega
         
         // Make sure there's a task at this index
         guard !tasksInSection.isEmpty && indexPath.row < tasksInSection.count else {
-                print("No task found for swipe action at section \(indexPath.section), row \(indexPath.row)")
-                return nil
-            }
+            print("No task found for swipe action at section \(indexPath.section), row \(indexPath.row)")
+            return nil
+        }
         
         let task = tasksInSection[indexPath.row]
         

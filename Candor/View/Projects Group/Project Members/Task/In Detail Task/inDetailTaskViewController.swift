@@ -68,7 +68,7 @@ class inDetailTaskViewController: UIViewController {
         setupCollectionViews()
         setupViewModels()
         setupUI()
-        
+        subTaskButtonOutlet.isHidden = true
         if taskId > 0 {
             fetchTaskDetails()
         }
@@ -572,7 +572,12 @@ class inDetailTaskViewController: UIViewController {
     }
     
     @IBAction func makeChangesButton(_ sender: UIButton) {
+        // Add this to prevent double-taps
+        sender.isEnabled = false
         saveTaskChanges()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            sender.isEnabled = true
+        }
     }
     
     @IBAction func subTaskButton(_ sender: UIButton) {
@@ -638,15 +643,98 @@ class inDetailTaskViewController: UIViewController {
     
     private func deleteSubTask(at index: Int) {
         guard index < subTasks.count else { return }
-        subTasks.remove(at: index)
-        subTasksCollectionView.reloadData()
+        let subTaskToDelete = subTasks[index]
+        
+        // Show confirmation alert
+        let alert = UIAlertController(
+            title: "Delete Sub Task",
+            message: "Are you sure you want to delete '\(subTaskToDelete.title)'?",
+            preferredStyle: .alert
+        )
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        alert.addAction(UIAlertAction(title: "Delete", style: .destructive) { [weak self] _ in
+            self?.performSubTaskDeletion(subTaskId: subTaskToDelete.id, at: index)
+        })
+        
+        present(alert, animated: true)
     }
     
-    private func toggleSubTaskCompletion(at index: Int) {
+    private func performSubTaskDeletion(subTaskId: Int, at index: Int) {
+        // Initialize DeleteTaskVM if not already done
+        let deleteTaskVM = DeleteTaskVM()
+        
+        // Setup callbacks
+        deleteTaskVM.onSuccess = { [weak self] message in
+            DispatchQueue.main.async {
+                // Remove from local array only after successful API call
+                if index < (self?.subTasks.count ?? 0) {
+                    self?.subTasks.remove(at: index)
+                    self?.subTasksCollectionView.reloadData()
+                }
+                self?.showAlert(title: "Success", message: message)
+            }
+        }
+        
+        deleteTaskVM.onError = { [weak self] error in
+            DispatchQueue.main.async {
+                self?.showAlert(title: "Error", message: "Failed to delete subtask: \(error)")
+            }
+        }
+        
+        // Call the delete API with subtask ID
+        deleteTaskVM.deleteTask(taskId: subTaskId)
+    }
+    
+    private func updateSubTaskCompletion(at index: Int) {
         guard index < subTasks.count else { return }
-        let currentSubTask = subTasks[index]
-        subTasks[index] = currentSubTask.withUpdatedCompletion(!currentSubTask.isCompleted)
-        subTasksCollectionView.reloadData()
+        let subTask = subTasks[index]
+        let newCompletionStatus = !subTask.isCompleted
+        
+        // Update UI immediately for better UX
+        subTasks[index] = subTask.withUpdatedCompletion(newCompletionStatus)
+        subTasksCollectionView.reloadItems(at: [IndexPath(item: index, section: 0)])
+        
+        // Get current status ID - FIXED: Handle nil case properly
+        let currentStatusId = selectedStatusId ?? taskData?.taskStatus.id ?? 1
+        
+        // FIXED: Determine proper status string based on completion
+        let statusString: String
+        if newCompletionStatus {
+            statusString = "Completed"
+        } else {
+            // Find appropriate in-progress status or use default
+            if let availableStatus = availableStatuses.first(where: { $0.title.lowercased().contains("progress") || $0.title.lowercased().contains("pending") || $0.title.lowercased().contains("todo") }) {
+                statusString = availableStatus.title
+            } else {
+                statusString = "In Progress" // fallback
+            }
+        }
+        
+        // FIXED: Ensure assignedTo has a valid value
+        let assignedToValue = subTask.assignedTo ?? taskData?.assignedTo ?? 0
+        
+        // Create update request with proper validation
+        let request = UpdateSubTaskRequest(
+            subTaskId: String(subTask.id),
+            title: subTask.title,
+            assignedTo: assignedToValue,
+            dueDate: subTask.dueDate ?? selectedDueDate,
+            priority: subTask.priority ?? selectedPriority,
+            description: subTask.description ?? "",
+            status: statusString,
+            tags: subTask.tags,
+            statusId: String(currentStatusId), isCompleted: newCompletionStatus
+        )
+        
+        print("🔄 Updating subtask completion:")
+        print("   - SubTask ID: \(subTask.id)")
+        print("   - New completion status: \(newCompletionStatus)")
+        print("   - Status string: \(statusString)")
+        print("   - Status ID: \(currentStatusId)")
+        
+        // Call API
+        updateSubTaskVM.updateSubTask(request: request)
     }
     
     // MARK: - Helper Methods
@@ -881,6 +969,7 @@ extension inDetailTaskViewController: UICollectionViewDelegate, UICollectionView
             
             return cell
         }
+        
         else if collectionView == subTasksCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "subTasksCollectionViewCell", for: indexPath) as! subTasksCollectionViewCell
             
@@ -889,7 +978,7 @@ extension inDetailTaskViewController: UICollectionViewDelegate, UICollectionView
                 cell.configureForExistingSubTask(subTask)
                 
                 cell.onCheckmarkTapped = { [weak self] in
-                    self?.toggleSubTaskCompletion(at: indexPath.item)
+                    self?.updateSubTaskCompletion(at: indexPath.item)
                 }
                 
                 cell.onDeleteTapped = { [weak self] in
@@ -898,6 +987,10 @@ extension inDetailTaskViewController: UICollectionViewDelegate, UICollectionView
                 
                 cell.onEditTapped = { [weak self] in
                     self?.showEditSubTaskAlert(for: indexPath.item)
+                }
+                
+                cell.onCalendarTapped = { [weak self] in
+                    self?.showSubTaskDatePicker(for: indexPath.item)
                 }
                 
             } else {
@@ -957,21 +1050,114 @@ extension inDetailTaskViewController: UICollectionViewDelegate, UICollectionView
             }
         } else if collectionView == subTasksCollectionView {
             let width = collectionView.frame.width - 32
-            return CGSize(width: max(width, 200), height: 60)
+            return CGSize(width: max(width, 300), height: 60)
         } else if collectionView == commentsAndActivityCollectionView {
             // FIXED: Use proper width calculation for comments
             let width = collectionView.frame.width - 16 // account for margins
             
             if selectedSegmentIndex == 0 {
                 // Comments - calculate height based on content
-                return CGSize(width: width, height: 120) // Increased height for comments
+                let comment = comments[indexPath.item] // your model for comments
+                
+                if !comment.taskCommFiles.isEmpty {
+                    return CGSize(width: width, height: 120) // with docs
+                } else {
+                    return CGSize(width: width, height: 80)  // no docs
+                }
             } else {
-                // Activity - smaller height for activity items
+                
                 return CGSize(width: width, height: 80)
             }
         }
         
         return CGSize(width: 100, height: 40)
+    }
+    
+    private func showSubTaskDatePicker(for index: Int) {
+        guard index < subTasks.count else { return }
+        let subTask = subTasks[index]
+        
+        let datePickerVC = UIViewController()
+        let datePicker = UIDatePicker()
+        datePicker.datePickerMode = .date
+        datePicker.preferredDatePickerStyle = .wheels
+        
+        // Set current date if available
+        if !(subTask.dueDate?.isEmpty ?? false) {
+            datePicker.date = parseDate(subTask.dueDate ?? "") ?? Date()
+        }
+        
+        datePickerVC.view = datePicker
+        
+        let alert = UIAlertController(title: "Update Due Date", message: "Current: \(formatDate(subTask.dueDate ?? ""))", preferredStyle: .actionSheet)
+        alert.setValue(datePickerVC, forKey: "contentViewController")
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        alert.addAction(UIAlertAction(title: "Update", style: .default) { [weak self] _ in
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd"
+            let newDueDate = formatter.string(from: datePicker.date)
+            
+            self?.updateSubTaskDueDate(at: index, newDueDate: newDueDate)
+        })
+        
+        if let popover = alert.popoverPresentationController {
+            popover.sourceView = self.view
+            popover.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
+            popover.permittedArrowDirections = []
+        }
+        
+        present(alert, animated: true)
+    }
+    
+    private func updateSubTaskDueDate(at index: Int, newDueDate: String) {
+        guard index < subTasks.count else { return }
+        let subTask = subTasks[index]
+        
+        // Update UI immediately
+        subTasks[index] = subTask.withUpdatedDueDate(newDueDate)
+        subTasksCollectionView.reloadItems(at: [IndexPath(item: index, section: 0)])
+        
+        // FIXED: Get proper status information
+        let currentStatusId = selectedStatusId ?? taskData?.taskStatus.id ?? 1
+        let assignedToValue = subTask.assignedTo ?? taskData?.assignedTo ?? 0
+        
+        // FIXED: Determine current status string properly
+        let statusString: String
+        if subTask.isCompleted {
+            statusString = "Completed"
+        } else {
+            // Try to find the current status title
+            if let currentStatus = availableStatuses.first(where: { $0.id == currentStatusId }) {
+                statusString = currentStatus.title
+            } else if let taskStatus = taskData?.taskStatus {
+                statusString = taskStatus.title
+            } else {
+                statusString = "In Progress" // fallback
+            }
+        }
+        
+        // Create update request
+        let request = UpdateSubTaskRequest(
+            subTaskId: String(subTask.id),
+            title: subTask.title,
+            assignedTo: assignedToValue,
+            dueDate: newDueDate,
+            priority: subTask.priority ?? selectedPriority,
+            description: subTask.description ?? "",
+            status: statusString,
+            tags: subTask.tags,
+            statusId: String(currentStatusId), isCompleted: subTask.isCompleted
+        )
+        
+        print("📅 Updating subtask due date:")
+        print("   - SubTask ID: \(subTask.id)")
+        print("   - New due date: \(newDueDate)")
+        print("   - Status: \(statusString)")
+        print("   - Assigned to: \(assignedToValue)")
+        
+        // Call API
+        updateSubTaskVM.updateSubTask(request: request)
     }
     
     // MARK: - SubTask Helper Methods
@@ -991,14 +1177,14 @@ extension inDetailTaskViewController: UICollectionViewDelegate, UICollectionView
         }
         
         let saveAction = UIAlertAction(title: "Save", style: .default) { [weak self] _ in
-            guard let title = alert.textFields?[0].text, !title.isEmpty else { return }
+            guard let title = alert.textFields?[0].text, !title.isEmpty else {
+                self?.showAlert(title: "Error", message: "Title cannot be empty")
+                return
+            }
             let description = alert.textFields?[1].text ?? ""
             
-            // Update locally first using the extension methods
-            self?.subTasks[index] = self?.subTasks[index]
-                .withUpdatedTitle(title)
-                .withUpdatedDescription(description) ?? subTask
-            self?.subTasksCollectionView.reloadData()
+            // FIXED: Call API to update instead of just local update
+            self?.updateSubTaskTitleAndDescription(at: index, title: title, description: description)
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
@@ -1008,7 +1194,53 @@ extension inDetailTaskViewController: UICollectionViewDelegate, UICollectionView
         
         present(alert, animated: true)
     }
+    
+    // MARK: - NEW Method to Update Title and Description via API
+    private func updateSubTaskTitleAndDescription(at index: Int, title: String, description: String) {
+        guard index < subTasks.count else { return }
+        let subTask = subTasks[index]
+        
+        // Update UI immediately
+        subTasks[index] = subTask.withUpdatedTitle(title).withUpdatedDescription(description)
+        subTasksCollectionView.reloadData()
+        
+        // Prepare API request
+        let currentStatusId = selectedStatusId ?? taskData?.taskStatus.id ?? 1
+        let assignedToValue = subTask.assignedTo ?? taskData?.assignedTo ?? 0
+        
+        let statusString: String
+        if subTask.isCompleted {
+            statusString = "Completed"
+        } else {
+            if let currentStatus = availableStatuses.first(where: { $0.id == currentStatusId }) {
+                statusString = currentStatus.title
+            } else {
+                statusString = "In Progress"
+            }
+        }
+        
+        let request = UpdateSubTaskRequest(
+            subTaskId: String(subTask.id),
+            title: title,
+            assignedTo: assignedToValue,
+            dueDate: subTask.dueDate ?? selectedDueDate,
+            priority: subTask.priority ?? selectedPriority,
+            description: description,
+            status: statusString,
+            tags: subTask.tags,
+            statusId: String(currentStatusId), isCompleted: subTask.isCompleted
+        )
+        
+        print("✏️ Updating subtask title/description:")
+        print("   - SubTask ID: \(subTask.id)")
+        print("   - New title: \(title)")
+        print("   - New description: \(description)")
+        
+        updateSubTaskVM.updateSubTask(request: request)
+    }
 }
+
+
 
 // MARK: - Mutable SubTaskData Extension
 extension SubTaskData {
@@ -1112,6 +1344,24 @@ extension InnerSubTaskData {
             dueDate: self.dueDate,
             createdAt: self.createdAt,
             description: description,
+            isCompleted: self.isCompleted,
+            internId: self.internId,
+            taskOwnerId: self.taskOwnerId,
+            taskType: self.taskType
+        )
+    }
+    
+    func withUpdatedDueDate(_ dueDate: String) -> InnerSubTaskData {
+        return InnerSubTaskData(
+            tags: self.tags,
+            id: self.id,
+            title: self.title,
+            assignedTo: self.assignedTo,
+            projectId: self.projectId,
+            priority: self.priority,
+            dueDate: dueDate,
+            createdAt: self.createdAt,
+            description: self.description,
             isCompleted: self.isCompleted,
             internId: self.internId,
             taskOwnerId: self.taskOwnerId,

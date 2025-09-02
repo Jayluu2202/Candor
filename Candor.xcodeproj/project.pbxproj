@@ -62,6 +62,13 @@
 		045E01AA2E55DD6200E24BE1 /* addDocumentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 045E01A82E55DD6200E24BE1 /* addDocumentViewController.xib */; };
 		045E01AE2E55F09E00E24BE1 /* DocumentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045E01AD2E55F09E00E24BE1 /* DocumentModel.swift */; };
 		045E01B02E55F0B900E24BE1 /* DocumentVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045E01AF2E55F0B900E24BE1 /* DocumentVM.swift */; };
+		047D3F5E2E66F707009D8794 /* candidatesInterviewTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047D3F5D2E66F707009D8794 /* candidatesInterviewTab.swift */; };
+		047D3F612E66F73D009D8794 /* companyAssetAllocationTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047D3F602E66F73D009D8794 /* companyAssetAllocationTab.swift */; };
+		047D3F632E66F76A009D8794 /* myTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047D3F622E66F76A009D8794 /* myTeamViewController.swift */; };
+		047D3F652E66F77C009D8794 /* myTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047D3F642E66F77C009D8794 /* myTaskViewController.swift */; };
+		047D3F672E66F78B009D8794 /* inboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047D3F662E66F78B009D8794 /* inboxViewController.swift */; };
+		047D3F6E2E670B93009D8794 /* assetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047D3F6C2E670B93009D8794 /* assetCollectionViewCell.swift */; };
+		047D3F6F2E670B93009D8794 /* assetCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047D3F6D2E670B93009D8794 /* assetCollectionViewCell.xib */; };
 		047F61CD2E33558E0000F2BC /* tabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F61CC2E33558E0000F2BC /* tabViewController.swift */; };
 		047F61CF2E335F210000F2BC /* employeeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F61CE2E335F210000F2BC /* employeeTabView.swift */; };
 		0485B82D2E337F9E00186FEC /* projectsTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485B82C2E337F9E00186FEC /* projectsTab.swift */; };
@@ -185,6 +192,13 @@
 		045E01A82E55DD6200E24BE1 /* addDocumentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = addDocumentViewController.xib; sourceTree = "<group>"; };
 		045E01AD2E55F09E00E24BE1 /* DocumentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentModel.swift; sourceTree = "<group>"; };
 		045E01AF2E55F0B900E24BE1 /* DocumentVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentVM.swift; sourceTree = "<group>"; };
+		047D3F5D2E66F707009D8794 /* candidatesInterviewTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = candidatesInterviewTab.swift; sourceTree = "<group>"; };
+		047D3F602E66F73D009D8794 /* companyAssetAllocationTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = companyAssetAllocationTab.swift; sourceTree = "<group>"; };
+		047D3F622E66F76A009D8794 /* myTeamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myTeamViewController.swift; sourceTree = "<group>"; };
+		047D3F642E66F77C009D8794 /* myTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myTaskViewController.swift; sourceTree = "<group>"; };
+		047D3F662E66F78B009D8794 /* inboxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inboxViewController.swift; sourceTree = "<group>"; };
+		047D3F6C2E670B93009D8794 /* assetCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = assetCollectionViewCell.swift; sourceTree = "<group>"; };
+		047D3F6D2E670B93009D8794 /* assetCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = assetCollectionViewCell.xib; sourceTree = "<group>"; };
 		047F61CC2E33558E0000F2BC /* tabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tabViewController.swift; sourceTree = "<group>"; };
 		047F61CE2E335F210000F2BC /* employeeTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = employeeTabView.swift; sourceTree = "<group>"; };
 		0485B82C2E337F9E00186FEC /* projectsTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = projectsTab.swift; sourceTree = "<group>"; };
@@ -304,6 +318,11 @@
 				04ED125F2E339BE500AD5608 /* Employee Group */,
 				04ED12612E339C0500AD5608 /* Projects Group */,
 				04ED12602E339BFA00AD5608 /* Dashboard Group */,
+				047D3F512E66E8B2009D8794 /* My Team Group */,
+				047D3F562E66EBEA009D8794 /* My Task Group */,
+				047D3F592E66EC70009D8794 /* Inbox Group */,
+				047D3F5C2E66F624009D8794 /* Candidate Leads Group */,
+				047D3F5F2E66F70D009D8794 /* Company Asset Allocation Group */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -646,6 +665,56 @@
 			path = Tasks;
 			sourceTree = "<group>";
 		};
+		047D3F512E66E8B2009D8794 /* My Team Group */ = {
+			isa = PBXGroup;
+			children = (
+				047D3F622E66F76A009D8794 /* myTeamViewController.swift */,
+			);
+			path = "My Team Group";
+			sourceTree = "<group>";
+		};
+		047D3F562E66EBEA009D8794 /* My Task Group */ = {
+			isa = PBXGroup;
+			children = (
+				047D3F642E66F77C009D8794 /* myTaskViewController.swift */,
+			);
+			path = "My Task Group";
+			sourceTree = "<group>";
+		};
+		047D3F592E66EC70009D8794 /* Inbox Group */ = {
+			isa = PBXGroup;
+			children = (
+				047D3F662E66F78B009D8794 /* inboxViewController.swift */,
+			);
+			path = "Inbox Group";
+			sourceTree = "<group>";
+		};
+		047D3F5C2E66F624009D8794 /* Candidate Leads Group */ = {
+			isa = PBXGroup;
+			children = (
+				047D3F5D2E66F707009D8794 /* candidatesInterviewTab.swift */,
+			);
+			path = "Candidate Leads Group";
+			sourceTree = "<group>";
+		};
+		047D3F5F2E66F70D009D8794 /* Company Asset Allocation Group */ = {
+			isa = PBXGroup;
+			children = (
+				047D3F602E66F73D009D8794 /* companyAssetAllocationTab.swift */,
+				047D3F6B2E670B5E009D8794 /* Asset Cell */,
+			);
+			path = "Company Asset Allocation Group";
+			sourceTree = "<group>";
+		};
+		047D3F6B2E670B5E009D8794 /* Asset Cell */ = {
+			isa = PBXGroup;
+			children = (
+				047D3F6C2E670B93009D8794 /* assetCollectionViewCell.swift */,
+				047D3F6D2E670B93009D8794 /* assetCollectionViewCell.xib */,
+			);
+			path = "Asset Cell";
+			sourceTree = "<group>";
+		};
 		048D78522E5ECB2C006C3384 /* Section names */ = {
 			isa = PBXGroup;
 			children = (
@@ -835,6 +904,8 @@
 			dependencies = (
 			);
 			name = Candor;
+			packageProductDependencies = (
+			);
 			productName = Candor;
 			productReference = 040678962E320FB50085B168 /* Candor.app */;
 			productType = "com.apple.product-type.application";
@@ -863,6 +934,8 @@
 				Base,
 			);
 			mainGroup = 0406788D2E320FB50085B168;
+			packageReferences = (
+			);
 			productRefGroup = 040678972E320FB50085B168 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -880,6 +953,7 @@
 				045E01842E55962C00E24BE1 /* addNoteViewController.xib in Resources */,
 				04EEE2F62E3CBEF90064E12C /* projectCollectionViewCell.xib in Resources */,
 				04D166702E5745F800CC3978 /* addMemberViewController.xib in Resources */,
+				047D3F6F2E670B93009D8794 /* assetCollectionViewCell.xib in Resources */,
 				045E01AA2E55DD6200E24BE1 /* addDocumentViewController.xib in Resources */,
 				04ED12692E33A3F400AD5608 /* projectsTableViewCell.xib in Resources */,
 				045E019F2E55C67A00E24BE1 /* notesTableViewCell.xib in Resources */,
@@ -914,9 +988,13 @@
 				045E01982E55C62500E24BE1 /* memberTableViewCell.swift in Sources */,
 				045E01B02E55F0B900E24BE1 /* DocumentVM.swift in Sources */,
 				045E01802E55836600E24BE1 /* NoteModel.swift in Sources */,
+				047D3F672E66F78B009D8794 /* inboxViewController.swift in Sources */,
 				045E017D2E55832D00E24BE1 /* NoteVM.swift in Sources */,
 				0406789E2E320FB50085B168 /* loginViewController.swift in Sources */,
+				047D3F5E2E66F707009D8794 /* candidatesInterviewTab.swift in Sources */,
+				047D3F6E2E670B93009D8794 /* assetCollectionViewCell.swift in Sources */,
 				047F61CD2E33558E0000F2BC /* tabViewController.swift in Sources */,
+				047D3F632E66F76A009D8794 /* myTeamViewController.swift in Sources */,
 				04247C8D2E61864A007B1E7B /* AddCommentsVM.swift in Sources */,
 				045E01832E55962C00E24BE1 /* addNoteViewController.swift in Sources */,
 				043C46242E5DDBF1005A3555 /* AddTaskVM.swift in Sources */,
@@ -936,6 +1014,7 @@
 				04F0073D2E37A27F0027F046 /* ProjectsVM.swift in Sources */,
 				04D1666F2E5745F800CC3978 /* addMemberViewController.swift in Sources */,
 				04247C9C2E61A92F007B1E7B /* subTasksCollectionViewCell.swift in Sources */,
+				047D3F612E66F73D009D8794 /* companyAssetAllocationTab.swift in Sources */,
 				04ED12642E339C4E00AD5608 /* employeeTableViewCell.swift in Sources */,
 				04F0073B2E37A1790027F046 /* ProjectsModel.swift in Sources */,
 				04247C812E617CFD007B1E7B /* UpdateSubTasksModel.swift in Sources */,
@@ -960,6 +1039,7 @@
 				043DEC182E43266F00043ABC /* EditEmployeeVM.swift in Sources */,
 				04247CA02E61AFBB007B1E7B /* commentsAndActivityCollectionViewCell.swift in Sources */,
 				048D78412E5EBB5F006C3384 /* GetProjectTaskSectionNameModel.swift in Sources */,
+				047D3F652E66F77C009D8794 /* myTaskViewController.swift in Sources */,
 				04247C892E6184F7007B1E7B /* TaskActivityModel.swift in Sources */,
 				049469512E42245600910B05 /* SingleEmployeeResponse.swift in Sources */,
 				048D78512E5ECADF006C3384 /* DeleteTaskVM.swift in Sources */,
