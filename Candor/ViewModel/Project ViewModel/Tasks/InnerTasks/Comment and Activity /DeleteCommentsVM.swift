@@ -14,9 +14,8 @@ class DeleteCommentsVM {
     var onError: ((String) -> Void)?
     
     // MARK: - Delete Comment API Call
-    func deleteComment(commentId: Int, taskId: Int) {
+    func deleteComment(commentId: Int) {
         
-        // FIXED: Properly construct URL with query parameters
         var urlComponents = URLComponents(string: APIEndpoints.DeleteComments)
         urlComponents?.queryItems = [
             URLQueryItem(name: "comment_id", value: String(commentId))

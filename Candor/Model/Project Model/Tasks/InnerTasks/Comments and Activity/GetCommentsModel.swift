@@ -27,15 +27,15 @@ struct GetCommentsData: Codable {
 
 // MARK: - Single Comment
 struct GetComment: Codable {
-    let mentionUsers: [String]?
+    let mentionUsers: [String]
     let id: Int
-    let taskID: Int?
+    let taskID: Int
     let userID: Int
     let message: String
     let createdAt, updatedAt: String
     let deletedAt: String?
     let user: GetCommentsUser
-    let taskCommFiles: [String]?
+    let taskCommFiles: [TaskCommFile]
 
     enum CodingKeys: String, CodingKey {
         case mentionUsers = "mention_users"
@@ -45,6 +45,13 @@ struct GetComment: Codable {
         case message, createdAt, updatedAt, deletedAt, user
         case taskCommFiles = "task_comm_files"
     }
+}
+
+// MARK: - Task Comment File
+struct TaskCommFile: Codable {
+    let file: String
+    let id: Int
+    let name: String
 }
 
 // MARK: - User
