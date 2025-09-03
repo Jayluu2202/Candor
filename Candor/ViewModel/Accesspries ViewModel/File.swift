@@ -8,5 +8,7 @@
 import Foundation
 
 class etst{
-    
+    func teste(){
+        
+    }
 }
