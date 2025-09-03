@@ -71,6 +71,7 @@
 		047D3F6F2E670B93009D8794 /* assetCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047D3F6D2E670B93009D8794 /* assetCollectionViewCell.xib */; };
 		047F61CD2E33558E0000F2BC /* tabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F61CC2E33558E0000F2BC /* tabViewController.swift */; };
 		047F61CF2E335F210000F2BC /* employeeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F61CE2E335F210000F2BC /* employeeTabView.swift */; };
+		047FB6062E67F2490080D024 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047FB6052E67F2490080D024 /* File.swift */; };
 		0485B82D2E337F9E00186FEC /* projectsTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485B82C2E337F9E00186FEC /* projectsTab.swift */; };
 		0486B0882E5C200A0014C716 /* addTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0486B0862E5C200A0014C716 /* addTaskViewController.swift */; };
 		0486B0892E5C200A0014C716 /* addTaskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0486B0872E5C200A0014C716 /* addTaskViewController.xib */; };
@@ -201,6 +202,7 @@
 		047D3F6D2E670B93009D8794 /* assetCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = assetCollectionViewCell.xib; sourceTree = "<group>"; };
 		047F61CC2E33558E0000F2BC /* tabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tabViewController.swift; sourceTree = "<group>"; };
 		047F61CE2E335F210000F2BC /* employeeTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = employeeTabView.swift; sourceTree = "<group>"; };
+		047FB6052E67F2490080D024 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		0485B82C2E337F9E00186FEC /* projectsTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = projectsTab.swift; sourceTree = "<group>"; };
 		0486B0862E5C200A0014C716 /* addTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addTaskViewController.swift; sourceTree = "<group>"; };
 		0486B0872E5C200A0014C716 /* addTaskViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = addTaskViewController.xib; sourceTree = "<group>"; };
@@ -719,6 +721,7 @@
 		047FB6042E67F1BB0080D024 /* Accesspries ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				047FB6052E67F2490080D024 /* File.swift */,
 			);
 			path = "Accesspries ViewModel";
 			sourceTree = "<group>";
@@ -1070,6 +1073,7 @@
 				0486B08B2E5C30D00014C716 /* GetTaskVM.swift in Sources */,
 				04247C6F2E6179C5007B1E7B /* UpdateInnerTaskDetailsVM.swift in Sources */,
 				04D1666C2E57175600CC3978 /* MemberModel.swift in Sources */,
+				047FB6062E67F2490080D024 /* File.swift in Sources */,
 				04247C982E61A608007B1E7B /* tagsCollectionViewCell.swift in Sources */,
 				0406789C2E320FB50085B168 /* SceneDelegate.swift in Sources */,
 				04EEE2F52E3CBEF90064E12C /* projectCollectionViewCell.swift in Sources */,
