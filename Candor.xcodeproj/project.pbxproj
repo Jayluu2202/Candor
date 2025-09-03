@@ -335,6 +335,7 @@
 				0424BD702E44703600285391 /* Dashboard ViewModel */,
 				0424BD6F2E44702D00285391 /* Project ViewModel */,
 				0424BD6E2E44702000285391 /* Employee ViewModel */,
+				047FB6042E67F1BB0080D024 /* Accesspries ViewModel */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -713,6 +714,13 @@
 				047D3F6D2E670B93009D8794 /* assetCollectionViewCell.xib */,
 			);
 			path = "Asset Cell";
+			sourceTree = "<group>";
+		};
+		047FB6042E67F1BB0080D024 /* Accesspries ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Accesspries ViewModel";
 			sourceTree = "<group>";
 		};
 		048D78522E5ECB2C006C3384 /* Section names */ = {
