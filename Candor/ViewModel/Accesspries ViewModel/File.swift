@@ -9,6 +9,6 @@ import Foundation
 
 class etst{
     func teste(){
-        
+        print("hello")
     }
 }
