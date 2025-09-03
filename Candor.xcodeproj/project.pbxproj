@@ -79,6 +79,8 @@
 		047FB6132E6818FE0080D024 /* UpdateAssetVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047FB6122E6818FE0080D024 /* UpdateAssetVM.swift */; };
 		047FB6152E6819130080D024 /* AddAssetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047FB6142E6819130080D024 /* AddAssetModel.swift */; };
 		047FB6172E6819220080D024 /* UpdateAssetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047FB6162E6819220080D024 /* UpdateAssetModel.swift */; };
+		047FB61D2E681ED50080D024 /* addAssetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047FB61B2E681ED50080D024 /* addAssetViewController.swift */; };
+		047FB61E2E681ED50080D024 /* addAssetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047FB61C2E681ED50080D024 /* addAssetViewController.xib */; };
 		0485B82D2E337F9E00186FEC /* projectsTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485B82C2E337F9E00186FEC /* projectsTab.swift */; };
 		0486B0882E5C200A0014C716 /* addTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0486B0862E5C200A0014C716 /* addTaskViewController.swift */; };
 		0486B0892E5C200A0014C716 /* addTaskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0486B0872E5C200A0014C716 /* addTaskViewController.xib */; };
@@ -217,6 +219,8 @@
 		047FB6122E6818FE0080D024 /* UpdateAssetVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateAssetVM.swift; sourceTree = "<group>"; };
 		047FB6142E6819130080D024 /* AddAssetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAssetModel.swift; sourceTree = "<group>"; };
 		047FB6162E6819220080D024 /* UpdateAssetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateAssetModel.swift; sourceTree = "<group>"; };
+		047FB61B2E681ED50080D024 /* addAssetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addAssetViewController.swift; sourceTree = "<group>"; };
+		047FB61C2E681ED50080D024 /* addAssetViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = addAssetViewController.xib; sourceTree = "<group>"; };
 		0485B82C2E337F9E00186FEC /* projectsTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = projectsTab.swift; sourceTree = "<group>"; };
 		0486B0862E5C200A0014C716 /* addTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addTaskViewController.swift; sourceTree = "<group>"; };
 		0486B0872E5C200A0014C716 /* addTaskViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = addTaskViewController.xib; sourceTree = "<group>"; };
@@ -720,6 +724,7 @@
 			children = (
 				047D3F602E66F73D009D8794 /* accessoriesTab.swift */,
 				047D3F6B2E670B5E009D8794 /* Asset Cell */,
+				047FB6182E681E6E0080D024 /* Asset Add Form */,
 			);
 			path = "Accessories Group";
 			sourceTree = "<group>";
@@ -753,6 +758,15 @@
 				047FB6162E6819220080D024 /* UpdateAssetModel.swift */,
 			);
 			path = "Accessories Model";
+			sourceTree = "<group>";
+		};
+		047FB6182E681E6E0080D024 /* Asset Add Form */ = {
+			isa = PBXGroup;
+			children = (
+				047FB61B2E681ED50080D024 /* addAssetViewController.swift */,
+				047FB61C2E681ED50080D024 /* addAssetViewController.xib */,
+			);
+			path = "Asset Add Form";
 			sourceTree = "<group>";
 		};
 		048D78522E5ECB2C006C3384 /* Section names */ = {
@@ -1009,6 +1023,7 @@
 				040678A32E320FB80085B168 /* Assets.xcassets in Resources */,
 				040678A12E320FB50085B168 /* Main.storyboard in Resources */,
 				04EEE2FF2E3CBF4F0064E12C /* clientAndLeadsCollectionViewCell.xib in Resources */,
+				047FB61E2E681ED50080D024 /* addAssetViewController.xib in Resources */,
 				045E01992E55C62500E24BE1 /* memberTableViewCell.xib in Resources */,
 				045E01892E55C27100E24BE1 /* projectDetailsViewController.storyboard in Resources */,
 				04247C992E61A608007B1E7B /* tagsCollectionViewCell.xib in Resources */,
@@ -1091,6 +1106,7 @@
 				04247C892E6184F7007B1E7B /* TaskActivityModel.swift in Sources */,
 				049469512E42245600910B05 /* SingleEmployeeResponseModel.swift in Sources */,
 				048D78512E5ECADF006C3384 /* DeleteTaskVM.swift in Sources */,
+				047FB61D2E681ED50080D024 /* addAssetViewController.swift in Sources */,
 				040678B12E323A730085B168 /* LoginModel.swift in Sources */,
 				04A75F7F2E4B6CDA0072DF85 /* ForgotPasswordVM.swift in Sources */,
 				045E01902E55C5FC00E24BE1 /* taskTableViewCell.swift in Sources */,
