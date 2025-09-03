@@ -8,9 +8,18 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="accessoriesCollectionViewCell" customModule="Candor" customModuleProvider="target">
+            <connections>
+                <outlet property="deviceAllocationStatusLabel" destination="COQ-Yk-cTz" id="adj-Xj-ZfG"/>
+                <outlet property="deviceAssignedToLabel" destination="2i0-S6-tau" id="RZz-lB-MNs"/>
+                <outlet property="deviceLocationLabel" destination="UbV-vz-rNK" id="S8P-8Z-6dC"/>
+                <outlet property="itemNameLabel" destination="I8p-2p-cYn" id="pFe-QJ-jsK"/>
+                <outlet property="systemDeviceCodeLabel" destination="uZZ-ok-1ZD" id="J06-zd-nqc"/>
+                <outlet property="systemOSLabel" destination="hEM-3z-p75" id="FMa-Ud-HRt"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="assetCollectionViewCell" customModule="Candor" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="accessoriesCollectionViewCell">
             <rect key="frame" x="0.0" y="0.0" width="300" height="150"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -152,14 +161,6 @@
                 <constraint firstAttribute="trailing" secondItem="QWK-8r-CXR" secondAttribute="trailing" id="wW6-Uf-tKB"/>
             </constraints>
             <size key="customSize" width="271" height="60"/>
-            <connections>
-                <outlet property="deviceAllocationStatus" destination="COQ-Yk-cTz" id="ubl-ZN-wAm"/>
-                <outlet property="deviceAssignedTo" destination="2i0-S6-tau" id="EC4-Z3-KxU"/>
-                <outlet property="deviceLocation" destination="UbV-vz-rNK" id="jv5-jD-m1E"/>
-                <outlet property="itemName" destination="I8p-2p-cYn" id="lVU-ZB-c5A"/>
-                <outlet property="systemDeviceCode" destination="uZZ-ok-1ZD" id="lUY-CG-f0N"/>
-                <outlet property="systemOS" destination="hEM-3z-p75" id="lL2-8K-9pq"/>
-            </connections>
             <point key="canvasLocation" x="292.02898550724638" y="111.83035714285714"/>
         </collectionViewCell>
     </objects>

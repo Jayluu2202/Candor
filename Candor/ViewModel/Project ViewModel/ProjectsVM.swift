@@ -77,6 +77,9 @@ class ProjectsVM{
                 }
             } catch {
                 if let decodingError = error as? DecodingError {
+                    DispatchQueue.main.async {
+                        self.onError?("Decoding error: \(decodingError)")
+                    }
                 }
                 DispatchQueue.main.async {
                     self.onError?("Failed to parse server response")

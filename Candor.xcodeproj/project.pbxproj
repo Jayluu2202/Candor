@@ -63,15 +63,22 @@
 		045E01AE2E55F09E00E24BE1 /* DocumentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045E01AD2E55F09E00E24BE1 /* DocumentModel.swift */; };
 		045E01B02E55F0B900E24BE1 /* DocumentVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045E01AF2E55F0B900E24BE1 /* DocumentVM.swift */; };
 		047D3F5E2E66F707009D8794 /* candidatesInterviewTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047D3F5D2E66F707009D8794 /* candidatesInterviewTab.swift */; };
-		047D3F612E66F73D009D8794 /* companyAssetAllocationTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047D3F602E66F73D009D8794 /* companyAssetAllocationTab.swift */; };
+		047D3F612E66F73D009D8794 /* accessoriesTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047D3F602E66F73D009D8794 /* accessoriesTab.swift */; };
 		047D3F632E66F76A009D8794 /* myTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047D3F622E66F76A009D8794 /* myTeamViewController.swift */; };
 		047D3F652E66F77C009D8794 /* myTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047D3F642E66F77C009D8794 /* myTaskViewController.swift */; };
 		047D3F672E66F78B009D8794 /* inboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047D3F662E66F78B009D8794 /* inboxViewController.swift */; };
-		047D3F6E2E670B93009D8794 /* assetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047D3F6C2E670B93009D8794 /* assetCollectionViewCell.swift */; };
-		047D3F6F2E670B93009D8794 /* assetCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047D3F6D2E670B93009D8794 /* assetCollectionViewCell.xib */; };
+		047D3F6E2E670B93009D8794 /* accessoriesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047D3F6C2E670B93009D8794 /* accessoriesCollectionViewCell.swift */; };
+		047D3F6F2E670B93009D8794 /* accessoriesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047D3F6D2E670B93009D8794 /* accessoriesCollectionViewCell.xib */; };
 		047F61CD2E33558E0000F2BC /* tabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F61CC2E33558E0000F2BC /* tabViewController.swift */; };
 		047F61CF2E335F210000F2BC /* employeeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047F61CE2E335F210000F2BC /* employeeTabView.swift */; };
-		047FB6062E67F2490080D024 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047FB6052E67F2490080D024 /* File.swift */; };
+		047FB6082E67FD4A0080D024 /* GetAssetsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047FB6072E67FD4A0080D024 /* GetAssetsVM.swift */; };
+		047FB60B2E67FDA20080D024 /* GetAssetsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047FB60A2E67FDA20080D024 /* GetAssetsModel.swift */; };
+		047FB60D2E6811530080D024 /* GetUserAssetVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047FB60C2E6811530080D024 /* GetUserAssetVM.swift */; };
+		047FB60F2E6811860080D024 /* GetUserAssetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047FB60E2E6811860080D024 /* GetUserAssetModel.swift */; };
+		047FB6112E6818F00080D024 /* AddAssetVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047FB6102E6818F00080D024 /* AddAssetVM.swift */; };
+		047FB6132E6818FE0080D024 /* UpdateAssetVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047FB6122E6818FE0080D024 /* UpdateAssetVM.swift */; };
+		047FB6152E6819130080D024 /* AddAssetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047FB6142E6819130080D024 /* AddAssetModel.swift */; };
+		047FB6172E6819220080D024 /* UpdateAssetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047FB6162E6819220080D024 /* UpdateAssetModel.swift */; };
 		0485B82D2E337F9E00186FEC /* projectsTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485B82C2E337F9E00186FEC /* projectsTab.swift */; };
 		0486B0882E5C200A0014C716 /* addTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0486B0862E5C200A0014C716 /* addTaskViewController.swift */; };
 		0486B0892E5C200A0014C716 /* addTaskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0486B0872E5C200A0014C716 /* addTaskViewController.xib */; };
@@ -90,7 +97,7 @@
 		048D78582E5F0088006C3384 /* addTaskSectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048D78562E5F0088006C3384 /* addTaskSectionViewController.swift */; };
 		048D78592E5F0088006C3384 /* addTaskSectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 048D78572E5F0088006C3384 /* addTaskSectionViewController.xib */; };
 		0494694F2E4220ED00910B05 /* SingleEmployeeInfoVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0494694E2E4220ED00910B05 /* SingleEmployeeInfoVM.swift */; };
-		049469512E42245600910B05 /* SingleEmployeeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049469502E42245600910B05 /* SingleEmployeeResponse.swift */; };
+		049469512E42245600910B05 /* SingleEmployeeResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049469502E42245600910B05 /* SingleEmployeeResponseModel.swift */; };
 		04A75F782E4B4F460072DF85 /* editUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A75F772E4B4F460072DF85 /* editUserViewController.swift */; };
 		04A75F7A2E4B60460072DF85 /* forgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A75F792E4B60460072DF85 /* forgotPasswordViewController.swift */; };
 		04A75F7D2E4B6CB00072DF85 /* ForgotPasswordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A75F7C2E4B6CB00072DF85 /* ForgotPasswordModel.swift */; };
@@ -194,15 +201,22 @@
 		045E01AD2E55F09E00E24BE1 /* DocumentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentModel.swift; sourceTree = "<group>"; };
 		045E01AF2E55F0B900E24BE1 /* DocumentVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentVM.swift; sourceTree = "<group>"; };
 		047D3F5D2E66F707009D8794 /* candidatesInterviewTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = candidatesInterviewTab.swift; sourceTree = "<group>"; };
-		047D3F602E66F73D009D8794 /* companyAssetAllocationTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = companyAssetAllocationTab.swift; sourceTree = "<group>"; };
+		047D3F602E66F73D009D8794 /* accessoriesTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = accessoriesTab.swift; sourceTree = "<group>"; };
 		047D3F622E66F76A009D8794 /* myTeamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myTeamViewController.swift; sourceTree = "<group>"; };
 		047D3F642E66F77C009D8794 /* myTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myTaskViewController.swift; sourceTree = "<group>"; };
 		047D3F662E66F78B009D8794 /* inboxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inboxViewController.swift; sourceTree = "<group>"; };
-		047D3F6C2E670B93009D8794 /* assetCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = assetCollectionViewCell.swift; sourceTree = "<group>"; };
-		047D3F6D2E670B93009D8794 /* assetCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = assetCollectionViewCell.xib; sourceTree = "<group>"; };
+		047D3F6C2E670B93009D8794 /* accessoriesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = accessoriesCollectionViewCell.swift; sourceTree = "<group>"; };
+		047D3F6D2E670B93009D8794 /* accessoriesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = accessoriesCollectionViewCell.xib; sourceTree = "<group>"; };
 		047F61CC2E33558E0000F2BC /* tabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tabViewController.swift; sourceTree = "<group>"; };
 		047F61CE2E335F210000F2BC /* employeeTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = employeeTabView.swift; sourceTree = "<group>"; };
-		047FB6052E67F2490080D024 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		047FB6072E67FD4A0080D024 /* GetAssetsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAssetsVM.swift; sourceTree = "<group>"; };
+		047FB60A2E67FDA20080D024 /* GetAssetsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAssetsModel.swift; sourceTree = "<group>"; };
+		047FB60C2E6811530080D024 /* GetUserAssetVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserAssetVM.swift; sourceTree = "<group>"; };
+		047FB60E2E6811860080D024 /* GetUserAssetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserAssetModel.swift; sourceTree = "<group>"; };
+		047FB6102E6818F00080D024 /* AddAssetVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAssetVM.swift; sourceTree = "<group>"; };
+		047FB6122E6818FE0080D024 /* UpdateAssetVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateAssetVM.swift; sourceTree = "<group>"; };
+		047FB6142E6819130080D024 /* AddAssetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAssetModel.swift; sourceTree = "<group>"; };
+		047FB6162E6819220080D024 /* UpdateAssetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateAssetModel.swift; sourceTree = "<group>"; };
 		0485B82C2E337F9E00186FEC /* projectsTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = projectsTab.swift; sourceTree = "<group>"; };
 		0486B0862E5C200A0014C716 /* addTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addTaskViewController.swift; sourceTree = "<group>"; };
 		0486B0872E5C200A0014C716 /* addTaskViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = addTaskViewController.xib; sourceTree = "<group>"; };
@@ -221,7 +235,7 @@
 		048D78562E5F0088006C3384 /* addTaskSectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addTaskSectionViewController.swift; sourceTree = "<group>"; };
 		048D78572E5F0088006C3384 /* addTaskSectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = addTaskSectionViewController.xib; sourceTree = "<group>"; };
 		0494694E2E4220ED00910B05 /* SingleEmployeeInfoVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleEmployeeInfoVM.swift; sourceTree = "<group>"; };
-		049469502E42245600910B05 /* SingleEmployeeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleEmployeeResponse.swift; sourceTree = "<group>"; };
+		049469502E42245600910B05 /* SingleEmployeeResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleEmployeeResponseModel.swift; sourceTree = "<group>"; };
 		04A75F772E4B4F460072DF85 /* editUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = editUserViewController.swift; sourceTree = "<group>"; };
 		04A75F792E4B60460072DF85 /* forgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = forgotPasswordViewController.swift; sourceTree = "<group>"; };
 		04A75F7C2E4B6CB00072DF85 /* ForgotPasswordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordModel.swift; sourceTree = "<group>"; };
@@ -324,7 +338,7 @@
 				047D3F562E66EBEA009D8794 /* My Task Group */,
 				047D3F592E66EC70009D8794 /* Inbox Group */,
 				047D3F5C2E66F624009D8794 /* Candidate Leads Group */,
-				047D3F5F2E66F70D009D8794 /* Company Asset Allocation Group */,
+				047D3F5F2E66F70D009D8794 /* Accessories Group */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -349,6 +363,7 @@
 				0424BD6D2E446FE400285391 /* Dashboard Model */,
 				0424BD6C2E446FDB00285391 /* Project Model */,
 				0424BD6B2E446FCF00285391 /* Employee Model */,
+				047FB6092E67FD790080D024 /* Accessories Model */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -407,7 +422,7 @@
 			children = (
 				04ED126C2E33B7CF00AD5608 /* EmployeesModel.swift */,
 				04EEE2EE2E3C80760064E12C /* AddEmployeeModel.swift */,
-				049469502E42245600910B05 /* SingleEmployeeResponse.swift */,
+				049469502E42245600910B05 /* SingleEmployeeResponseModel.swift */,
 				043DEC192E43268E00043ABC /* EditEmployeeModel.swift */,
 				0430222D2E52EBC800E6482E /* EmployeePasswordModel.swift */,
 				04BA75422E5449DD00F67579 /* EmployeeStatusModel.swift */,
@@ -700,20 +715,20 @@
 			path = "Candidate Leads Group";
 			sourceTree = "<group>";
 		};
-		047D3F5F2E66F70D009D8794 /* Company Asset Allocation Group */ = {
+		047D3F5F2E66F70D009D8794 /* Accessories Group */ = {
 			isa = PBXGroup;
 			children = (
-				047D3F602E66F73D009D8794 /* companyAssetAllocationTab.swift */,
+				047D3F602E66F73D009D8794 /* accessoriesTab.swift */,
 				047D3F6B2E670B5E009D8794 /* Asset Cell */,
 			);
-			path = "Company Asset Allocation Group";
+			path = "Accessories Group";
 			sourceTree = "<group>";
 		};
 		047D3F6B2E670B5E009D8794 /* Asset Cell */ = {
 			isa = PBXGroup;
 			children = (
-				047D3F6C2E670B93009D8794 /* assetCollectionViewCell.swift */,
-				047D3F6D2E670B93009D8794 /* assetCollectionViewCell.xib */,
+				047D3F6C2E670B93009D8794 /* accessoriesCollectionViewCell.swift */,
+				047D3F6D2E670B93009D8794 /* accessoriesCollectionViewCell.xib */,
 			);
 			path = "Asset Cell";
 			sourceTree = "<group>";
@@ -721,9 +736,23 @@
 		047FB6042E67F1BB0080D024 /* Accesspries ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				047FB6052E67F2490080D024 /* File.swift */,
+				047FB6072E67FD4A0080D024 /* GetAssetsVM.swift */,
+				047FB60C2E6811530080D024 /* GetUserAssetVM.swift */,
+				047FB6102E6818F00080D024 /* AddAssetVM.swift */,
+				047FB6122E6818FE0080D024 /* UpdateAssetVM.swift */,
 			);
 			path = "Accesspries ViewModel";
+			sourceTree = "<group>";
+		};
+		047FB6092E67FD790080D024 /* Accessories Model */ = {
+			isa = PBXGroup;
+			children = (
+				047FB60A2E67FDA20080D024 /* GetAssetsModel.swift */,
+				047FB60E2E6811860080D024 /* GetUserAssetModel.swift */,
+				047FB6142E6819130080D024 /* AddAssetModel.swift */,
+				047FB6162E6819220080D024 /* UpdateAssetModel.swift */,
+			);
+			path = "Accessories Model";
 			sourceTree = "<group>";
 		};
 		048D78522E5ECB2C006C3384 /* Section names */ = {
@@ -964,7 +993,7 @@
 				045E01842E55962C00E24BE1 /* addNoteViewController.xib in Resources */,
 				04EEE2F62E3CBEF90064E12C /* projectCollectionViewCell.xib in Resources */,
 				04D166702E5745F800CC3978 /* addMemberViewController.xib in Resources */,
-				047D3F6F2E670B93009D8794 /* assetCollectionViewCell.xib in Resources */,
+				047D3F6F2E670B93009D8794 /* accessoriesCollectionViewCell.xib in Resources */,
 				045E01AA2E55DD6200E24BE1 /* addDocumentViewController.xib in Resources */,
 				04ED12692E33A3F400AD5608 /* projectsTableViewCell.xib in Resources */,
 				045E019F2E55C67A00E24BE1 /* notesTableViewCell.xib in Resources */,
@@ -996,6 +1025,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				047FB6132E6818FE0080D024 /* UpdateAssetVM.swift in Sources */,
 				045E01982E55C62500E24BE1 /* memberTableViewCell.swift in Sources */,
 				045E01B02E55F0B900E24BE1 /* DocumentVM.swift in Sources */,
 				045E01802E55836600E24BE1 /* NoteModel.swift in Sources */,
@@ -1003,7 +1033,10 @@
 				045E017D2E55832D00E24BE1 /* NoteVM.swift in Sources */,
 				0406789E2E320FB50085B168 /* loginViewController.swift in Sources */,
 				047D3F5E2E66F707009D8794 /* candidatesInterviewTab.swift in Sources */,
-				047D3F6E2E670B93009D8794 /* assetCollectionViewCell.swift in Sources */,
+				047FB60D2E6811530080D024 /* GetUserAssetVM.swift in Sources */,
+				047FB6082E67FD4A0080D024 /* GetAssetsVM.swift in Sources */,
+				047D3F6E2E670B93009D8794 /* accessoriesCollectionViewCell.swift in Sources */,
+				047FB6112E6818F00080D024 /* AddAssetVM.swift in Sources */,
 				047F61CD2E33558E0000F2BC /* tabViewController.swift in Sources */,
 				047D3F632E66F76A009D8794 /* myTeamViewController.swift in Sources */,
 				04247C8D2E61864A007B1E7B /* AddCommentsVM.swift in Sources */,
@@ -1025,9 +1058,11 @@
 				04F0073D2E37A27F0027F046 /* ProjectsVM.swift in Sources */,
 				04D1666F2E5745F800CC3978 /* addMemberViewController.swift in Sources */,
 				04247C9C2E61A92F007B1E7B /* subTasksCollectionViewCell.swift in Sources */,
-				047D3F612E66F73D009D8794 /* companyAssetAllocationTab.swift in Sources */,
+				047FB6172E6819220080D024 /* UpdateAssetModel.swift in Sources */,
+				047D3F612E66F73D009D8794 /* accessoriesTab.swift in Sources */,
 				04ED12642E339C4E00AD5608 /* employeeTableViewCell.swift in Sources */,
 				04F0073B2E37A1790027F046 /* ProjectsModel.swift in Sources */,
+				047FB60F2E6811860080D024 /* GetUserAssetModel.swift in Sources */,
 				04247C812E617CFD007B1E7B /* UpdateSubTasksModel.swift in Sources */,
 				04F56B7C2E605497004B2FD4 /* inDetailTaskViewController.swift in Sources */,
 				045E01A92E55DD6200E24BE1 /* addDocumentViewController.swift in Sources */,
@@ -1038,6 +1073,7 @@
 				04247C762E617C90007B1E7B /* AddSubTasksVM.swift in Sources */,
 				040678B32E323A950085B168 /* ApiEndpoints.swift in Sources */,
 				0406789A2E320FB50085B168 /* AppDelegate.swift in Sources */,
+				047FB60B2E67FDA20080D024 /* GetAssetsModel.swift in Sources */,
 				043DEC1A2E43268E00043ABC /* EditEmployeeModel.swift in Sources */,
 				04247C8F2E61865C007B1E7B /* DeleteCommentsVM.swift in Sources */,
 				041278932E38811D005FF7D0 /* AddProjectVM.swift in Sources */,
@@ -1047,12 +1083,13 @@
 				04BA75452E5449EF00F67579 /* EmployeeStatusVM.swift in Sources */,
 				04EEE2EF2E3C80760064E12C /* AddEmployeeModel.swift in Sources */,
 				041278972E388505005FF7D0 /* AddProjectModel.swift in Sources */,
+				047FB6152E6819130080D024 /* AddAssetModel.swift in Sources */,
 				043DEC182E43266F00043ABC /* EditEmployeeVM.swift in Sources */,
 				04247CA02E61AFBB007B1E7B /* commentsAndActivityCollectionViewCell.swift in Sources */,
 				048D78412E5EBB5F006C3384 /* GetProjectTaskSectionNameModel.swift in Sources */,
 				047D3F652E66F77C009D8794 /* myTaskViewController.swift in Sources */,
 				04247C892E6184F7007B1E7B /* TaskActivityModel.swift in Sources */,
-				049469512E42245600910B05 /* SingleEmployeeResponse.swift in Sources */,
+				049469512E42245600910B05 /* SingleEmployeeResponseModel.swift in Sources */,
 				048D78512E5ECADF006C3384 /* DeleteTaskVM.swift in Sources */,
 				040678B12E323A730085B168 /* LoginModel.swift in Sources */,
 				04A75F7F2E4B6CDA0072DF85 /* ForgotPasswordVM.swift in Sources */,
@@ -1073,7 +1110,6 @@
 				0486B08B2E5C30D00014C716 /* GetTaskVM.swift in Sources */,
 				04247C6F2E6179C5007B1E7B /* UpdateInnerTaskDetailsVM.swift in Sources */,
 				04D1666C2E57175600CC3978 /* MemberModel.swift in Sources */,
-				047FB6062E67F2490080D024 /* File.swift in Sources */,
 				04247C982E61A608007B1E7B /* tagsCollectionViewCell.swift in Sources */,
 				0406789C2E320FB50085B168 /* SceneDelegate.swift in Sources */,
 				04EEE2F52E3CBEF90064E12C /* projectCollectionViewCell.swift in Sources */,
